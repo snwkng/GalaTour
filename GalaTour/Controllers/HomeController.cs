@@ -25,7 +25,7 @@ namespace GalaTour.Controllers
         public IActionResult Index(int CityID)
         {
             ViewBag.eCity = db.ExCityes.ToList();
-            return RedirectToAction("Excursions", "Home", new { CityID });
+            return RedirectToAction("Excursions", "Home", new { CityID }); // попробовать реализовать через post
         }
         public IActionResult Excursions()
         {
