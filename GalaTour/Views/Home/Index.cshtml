@@ -1,0 +1,247 @@
+﻿@model IEnumerable<GalaTour.Models.Excursion>
+@{
+    ViewBag.Title = "Туристическое агентство ГалаТур Орёл";
+}
+<section class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="~/Home/Index">
+                <span style="color: #ff5722">G</span>ala<span style="color:#009688">T</span>our
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="material-icons">
+                    menu
+                </i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Автобусные туры к морю</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="~/Home/Excursions/">Экскурсии</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Туры за границу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="section-header d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="intro-text">
+                <h1 id="header__text" class="intro-lead-in" style="color: #fff;">Поиск туров к морю из Орла</h1>
+            </div>
+            <div class="header-nav">
+                <button id="bus-tours__button" type="button" class="btn btn-bus-tours">Туры к морю</button>
+                <button id="excursions__button" type="button" class="btn btn-excursions">Экскурсии</button>
+                <a class="btn btn-bus-rent" id="click">
+                    Аренда автобусов
+                    <i class="material-icons" style="vertical-align: middle; margin-bottom: 5px;">
+                        keyboard_arrow_down
+                    </i>
+                </a>
+            </div>
+            <form id="bus-tours__form" class="justify-content-center align-items-center" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="header__form-label">Откуда</label>
+                        <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="header__form-label">Куда</label>
+                        <select id="inputState" class="form-control form__select">
+                            <option selected disabled>Куда</option>
+                            <option>Кабардинка</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="header__form-label">Даты</label>
+                        <select id="inputState" class="form-control form__select">
+                            <option selected disabled>Выберите даты поездки</option>
+                            <option>20.07.19 - 27.07.19</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-search">
+                            Найти
+                            <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
+                                margin-bottom: 1px;">
+                                arrow_forward
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form id="excursions__form" class="justify-content-center align-items-center" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState" class="header__form-label">Откуда</label>
+                        <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState" class="header__form-label">Куда</label>
+                        <select id="inputState" name="cityID" class="form-control form__select">
+                            <option selected>Все направления</option>
+                            @foreach (var item1 in ViewBag.eCity)
+                            {
+                                <option value="@item1.ID">@item1.City</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-search">
+                            Найти
+                            <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
+                                margin-bottom: 1px;">
+                                arrow_forward
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+</section>
+<section class="section-default pop-bus-tours">
+    <div class="container">
+        <h3>Популярные направления</h3>
+        <div class="row justify-content-center">
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-bus-tours__card">
+                    <div class="pop-bus-tours__card-body">
+                        Сухуми
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-bus-tours__card">
+                    <div class="pop-bus-tours__card-body">
+                        Алушта
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-bus-tours__card">
+                    <div class="pop-bus-tours__card-body">
+                        Судак
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-bus-tours__card">
+                    <div class="pop-bus-tours__card-body">
+                        Сухуми
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="pop-bus-tours__link" href="">
+            Все направления <i class="material-icons"
+                               style="vertical-align: middle;">keyboard_arrow_right</i>
+        </a>
+    </div>
+</section>
+<section class="section-default pop-excursions">
+    <div class="container">
+        <h3>Экскурсионные туры из Орла</h3>
+        <div class="row justify-content-center">
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-excursions__card">
+                    <div class="pop-excursions__card-image"></div>
+                    <div class="pop-excursions__card-body">
+                        <h4>Экскурсия в Питер</h4>
+                        <p>4 дня <span>от 8940&#8381</span></p>
+                        <p class="pop-excursions__date">20.07.19</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-excursions__card">
+                    <div class="pop-excursions__card-image"></div>
+                    <div class="pop-excursions__card-body">
+                        <h4>Петергоф</h4>
+                        <p>4 дня <span>от 8940&#8381</span></p>
+                        <p class="pop-excursions__date">20.07.19</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-excursions__card">
+                    <div class="pop-excursions__card-image"></div>
+                    <div class="pop-excursions__card-body">
+                        <h4>Путешествие в Казань</h4>
+                        <p>4 дня <span>от 8940&#8381</span></p>
+                        <p class="pop-excursions__date">20.07.19</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-margin-bottom col-md-3 col-sm-6">
+                <div class="card pop-excursions__card">
+                    <div class="pop-excursions__card-image"></div>
+                    <div class="pop-excursions__card-body">
+                        <h4>Сказки востока</h4>
+                        <p>4 дня <span>от 8940&#8381</span></p>
+                        <p class="pop-excursions__date">20.07.19</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="pop-excursions__link" href="">
+            Все экскурсии <i class="material-icons"
+                             style="vertical-align: middle;">keyboard_arrow_right</i>
+        </a>
+    </div>
+</section>
+<section class="section-default bus-rent" id="bus-rent">
+    <div class="container">
+        <h3>Аренда автобусов в Орле</h3>
+        <p>Арендуйте туристические автобусы с водителями для групповых путешествий</p>
+        <div class="row justify-content-center align-items-center">
+            <div class="bus-rent__margin-bottom col-md-6 col-sm-6" style="text-align: center;">
+                <img src="~/images/setra215hd.png" alt="setra">
+            </div>
+            <div class="bus-rent__margin-bottom col-md-6 col-sm-6">
+                <div class="bus-rent__about">
+                    <h4>Setra 215HD</h4>
+                    <hr>
+                    <p class="bus-rent__text">
+                        Комфортный 49-и местный автобус оснащен всем необходимым, а именно: удобные регулируемые
+                        сиденья, подлокотники, кондиционер, ремни безопасности, локальное освещение, багажный отсек,
+                        стерео /CD, dvd, 220v, микрофон, монитор, доп место для гида, складные столы, холодильник
+                    </p>
+                    <a class="bus-rent__link" href="#">
+                        Арендовать
+                        <i class="material-icons" style="vertical-align: middle;">
+                            keyboard_arrow_right
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <div class="bus-rent__margin-bottom col-md-6 col-sm-6">
+                <div class="bus-rent__about">
+                    <h4>Mercedes Sprinter</h4>
+                    <hr style="background: #009688;">
+                    <p class="bus-rent__text">
+                        Комфортный 18-и местный автобус оснащен всем необходимым, а именно: удобные регулируемые
+                        сиденья, подлокотники, кондиционер, ремни безопасности, локальное освещение, багажный отсек,
+                        стерео /CD, dvd, 220v, микрофон, монитор, складные столы
+                    </p>
+                    <a class="bus-rent__link" style="color: #009688;" href="#">
+                        Арендовать <i class="material-icons"
+                                      style="vertical-align: middle;">keyboard_arrow_right</i>
+                    </a>
+                </div>
+            </div>
+            <div class="bus-rent__margin-bottom col-md-6 col-sm-6" style="text-align: center;">
+                <img src="~/images/mercedessprinter.png" alt="mercedes">
+            </div>
+        </div>
+    </div>
+</section>

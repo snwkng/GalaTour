@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>@ViewData["Title"] - GalaTour</title>
+
+    <environment include="Development">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/css/main.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    @RenderBody()
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer__block">
+                    <h5><span style="color: #ff5722;">G</span>ala<span style="color: #009688;">T</span>our</h5>
+                    <ul>
+                        <li><a href="~/Home/About">О нас</a></li>
+                        <li><a href="~/Home/Contacts">Контакты</a></li>
+                        <li><a href="~/Home/Tourist">Памятка туристу</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer__block">
+                    <h5>Услуги</h5>
+                    <ul>
+                        <li><a href="#">Подбор тура</a></li>
+                        <li><a href="#">Автобусные туры к морю</a></li>
+                        <li><a href="~/Home/Excursions">Экскурсионные туры</a></li>
+                        <li><a href="~/Home/Index/#bus-rent">Аренда автобуса</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer__block">
+                    <div class="social-icons">
+                        <a href="https://vk.com/gtorel" target="_blank">
+                            <i class="social-icon fa fa-vk"
+                               aria-hidden="true"></i>
+                        </a>
+                        <a href="https://ok.ru/gtorel" target="_blank">
+                            <i class="social-icon fa fa-odnoklassniki"
+                               aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/gtorel" target="_blank">
+                            <i class="social-icon fa fa-facebook"
+                               aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <ul>
+                        <li><a href="#">Условия</a></li>
+                        <li><a href="#">Конфеденциальность</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; 2019. All rights
+                    reserved. Информация на сайте носит ознакомительный характер и не является публичной офертой.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <environment include="Development">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/4c97eed067.js"></script>
+        <script>
+            !function (e) { "use strict"; e('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () { if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) { var a = e(this.hash); if ((a = a.length ? a : e("[name=" + this.hash.slice(1) + "]")).length) return e("html, body").animate({ scrollTop: a.offset().top - 54 }, 1e3, "easeInOutExpo"), !1 } }), e(".js-scroll-trigger").click(function () { e(".navbar-collapse").collapse("hide") }), e("body").scrollspy({ target: "#mainNav", offset: 56 }); function a() { 100 < e("#mainNav").offset().top ? e("#mainNav").addClass("navbar-shrink") : e("#mainNav").removeClass("navbar-shrink") } a(), e(window).scroll(a) }(jQuery);
+        </script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

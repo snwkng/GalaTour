@@ -1,0 +1,110 @@
+﻿@model IEnumerable<GalaTour.Models.Excursion>
+@{
+    ViewBag.Title = "Экскурсионные туры из Орла";
+}
+<section class="ex-header">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="~/Home/Index">
+                <span style="color: #ff5722">G</span>ala<span style="color:#009688">T</span>our
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="material-icons">
+                    menu
+                </i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Автобусные туры к морю</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="~/Home/Excursions">Экскурсии</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Туры за границу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="ex-section-header d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="intro-text">
+                <h1 class="intro-lead-in">Экскурсионные туры из Орла</h1>
+            </div>
+            <div class="header-nav">
+            </div>
+            <form class="justify-content-center align-items-center" method="get">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState" class="header__form-label">Откуда</label>
+                        <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState" class="header__form-label">Куда</label>
+                        <select id="inputState" name="cityID" class="form-control form__select">
+                            <option selected>Все направления</option>
+                            @foreach (var item1 in ViewBag.eCity)
+                            {
+                                <option value="@item1.ID">@item1.City</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-search">
+                            Найти
+                            <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
+                                margin-bottom: 1px;">
+                                arrow_forward
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+</section>
+<section class="section-default excursions">
+    <div class="container">
+        <h2 class="excursions__text">Экскурсионные туры из Орла в Москву</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12 ex-card">
+                    <div class="ex-card__image rounded" style="background-image: url('/images/crimea.jpg');"></div>
+                    <div class="ex-card__content">
+                        <h3>@item.Name</h3>
+                        <span class="ex-card__content-price">
+                            @item.ExPrice.Price &#8381
+                        </span>
+                        <p class="ex-card__content-text">
+                            <span>Город: </span> @item.ExCity.City
+                        </p>
+                        <p class="ex-card__content-text">
+                            <span>Проживание: </span> отель
+                        </p>
+                        <p class="ex-card__content-text">
+                            <span>Длительность: </span> @item.ExDuration.Duration
+                        </p>
+                        <p class="ex-card__content-text">
+                            <span>Отправление: </span> @item.ExDate.Date.ToString("dd.MM.yyyy")
+
+                        </p>
+                        <a href="" class="ex-card__content-link">
+                            Детали тура <i class="material-icons"
+                                           style="vertical-align: middle">
+                                arrow_forward
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

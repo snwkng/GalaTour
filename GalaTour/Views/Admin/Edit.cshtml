@@ -1,0 +1,61 @@
+﻿@model GalaTour.Models.Excursion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Excursion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageURL" class="control-label"></label>
+                <input asp-for="ImageURL" class="form-control" />
+                <span asp-validation-for="ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExDurationID" class="control-label"></label>
+                <select asp-for="ExDurationID" class="form-control" asp-items="ViewBag.ExDurationID"></select>
+                <span asp-validation-for="ExDurationID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExCityID" class="control-label"></label>
+                <select asp-for="ExCityID" class="form-control" asp-items="ViewBag.ExCityID"></select>
+                <span asp-validation-for="ExCityID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExDateID" class="control-label"></label>
+                <select asp-for="ExDateID" class="form-control" asp-items="ViewBag.ExDateID"></select>
+                <span asp-validation-for="ExDateID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExPriceID" class="control-label"></label>
+                <select asp-for="ExPriceID" class="form-control" asp-items="ViewBag.ExPriceID"></select>
+                <span asp-validation-for="ExPriceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
