@@ -152,46 +152,19 @@
     <div class="container">
         <h3>Экскурсионные туры из Орла</h3>
         <div class="row justify-content-center">
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-excursions__card">
-                    <div class="pop-excursions__card-image"></div>
-                    <div class="pop-excursions__card-body">
-                        <h4>Экскурсия в Питер</h4>
-                        <p>4 дня <span>от 8940&#8381</span></p>
-                        <p class="pop-excursions__date">20.07.19</p>
+            @foreach (var item in Model.Take(4))
+            {
+                <div class="col-margin-bottom col-md-3 col-sm-6">
+                    <div class="card pop-excursions__card">
+                        <div class="pop-excursions__card-image"></div>
+                        <div class="pop-excursions__card-body">
+                            <h4>@item.Name</h4>
+                            <p>@item.ExDuration.Duration дня <span>от @item.ExPrice.Price &#8381;</span></p>
+                            <p class="pop-excursions__date">@item.ExDate.Date.ToString("dd.MM.yyyy")</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-excursions__card">
-                    <div class="pop-excursions__card-image"></div>
-                    <div class="pop-excursions__card-body">
-                        <h4>Петергоф</h4>
-                        <p>4 дня <span>от 8940&#8381</span></p>
-                        <p class="pop-excursions__date">20.07.19</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-excursions__card">
-                    <div class="pop-excursions__card-image"></div>
-                    <div class="pop-excursions__card-body">
-                        <h4>Путешествие в Казань</h4>
-                        <p>4 дня <span>от 8940&#8381</span></p>
-                        <p class="pop-excursions__date">20.07.19</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-excursions__card">
-                    <div class="pop-excursions__card-image"></div>
-                    <div class="pop-excursions__card-body">
-                        <h4>Сказки востока</h4>
-                        <p>4 дня <span>от 8940&#8381</span></p>
-                        <p class="pop-excursions__date">20.07.19</p>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <a class="pop-excursions__link" href="">
             Все экскурсии <i class="material-icons"
@@ -216,13 +189,35 @@
                         сиденья, подлокотники, кондиционер, ремни безопасности, локальное освещение, багажный отсек,
                         стерео /CD, dvd, 220v, микрофон, монитор, доп место для гида, складные столы, холодильник
                     </p>
-                    <a class="bus-rent__link" href="#">
+                    <button class="btn bus-rent__link" data-toggle="modal" data-target="#busModal">
                         Арендовать
                         <i class="material-icons" style="vertical-align: middle;">
                             keyboard_arrow_right
                         </i>
-                    </a>
+                    </button>
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="busModal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalTitle">Аренда автобуса</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Арендовать автобус можно:</p>
+                                <p><i style="color: #009688;" class="fa fa-phone" aria-hidden="true"></i> По телефону: (4862)78-09-58</p>
+                                <p><i style="color: #009688;" class="fa fa-map-marker" aria-hidden="true"></i> В офисе: Орловская область, город Орел, ул. Комсомольская, д.88, офис №6</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal end -->
             </div>
             <div class="bus-rent__margin-bottom col-md-6 col-sm-6">
                 <div class="bus-rent__about">
@@ -233,10 +228,10 @@
                         сиденья, подлокотники, кондиционер, ремни безопасности, локальное освещение, багажный отсек,
                         стерео /CD, dvd, 220v, микрофон, монитор, складные столы
                     </p>
-                    <a class="bus-rent__link" style="color: #009688;" href="#">
+                    <button class="btn bus-rent__link" style="color: #009688;" data-toggle="modal" data-target="#busModal">
                         Арендовать <i class="material-icons"
                                       style="vertical-align: middle;">keyboard_arrow_right</i>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="bus-rent__margin-bottom col-md-6 col-sm-6" style="text-align: center;">

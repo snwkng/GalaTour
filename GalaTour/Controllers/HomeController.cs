@@ -18,8 +18,14 @@ namespace GalaTour.Controllers
         }
         public IActionResult Index()
         {
+            Random random = new Random();
+            var ex = db.Excursions
+                .Include(c => c.ExDuration)
+                .Include(c => c.ExCity)
+                .Include(c => c.ExDate)
+                .Include(c => c.ExPrice);
             ViewBag.eCity = db.ExCityes.ToList();
-            return View();
+            return View(ex.ToList());
         }
         [HttpPost]
         public IActionResult Index(int CityID)
