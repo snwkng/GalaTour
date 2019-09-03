@@ -2,17 +2,21 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-
+$(function () {
+    $('.btn-bus-tours').popover({
+        container: 'body'
+    })
+});
 $("#click").click(function () {
     $('html, body').animate({
         scrollTop: $("#bus-rent").offset().top
     }, 1000);
 });
-$('#bus-tours__button').click(function () {
+/*$('#bus-tours__button').click(function () {
     $('#bus-tours__form').css('display', 'block');
     $('#excursions__form').css('display', 'none');
     $('#header__text').text("Поиск туров к морю из Орла").html();
-});
+});*/
 $('#excursions__button').click(function () {
     $('#excursions__form').css('display', 'block');
     $('#bus-tours__form').css('display', 'none');

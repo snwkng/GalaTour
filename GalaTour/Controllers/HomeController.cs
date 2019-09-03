@@ -28,10 +28,10 @@ namespace GalaTour.Controllers
             return View(ex.ToList());
         }
         [HttpPost]
-        public IActionResult Index(int CityID)
+        public IActionResult Index(int ci)
         {
             ViewBag.eCity = db.ExCityes.ToList();
-            return RedirectToAction("Excursions", "Home", new { CityID }); // попробовать реализовать через post
+            return RedirectToAction("Excursions", "Home", new { ci }); // попробовать реализовать через post
         }
         public IActionResult Excursions()
         {
@@ -44,10 +44,10 @@ namespace GalaTour.Controllers
             return View(ex.ToList());
         }
         [HttpGet]
-        public IActionResult Excursions(int cityID)
+        public IActionResult Excursions(int ci)
         {
             ViewBag.eCity = db.ExCityes.ToList();
-            if (cityID == 0)
+            if (ci == 0)
             {
                 var e = db.Excursions
                 .Include(c => c.ExDuration)
@@ -61,7 +61,7 @@ namespace GalaTour.Controllers
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
                 .Include(c => c.ExPrice)
-                .Where(c => c.ExCity.ID == cityID);
+                .Where(c => c.ExCity.ID == ci);
             return View(ex.ToList());
         }
         public IActionResult About()
