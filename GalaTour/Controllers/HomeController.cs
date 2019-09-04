@@ -18,8 +18,8 @@ namespace GalaTour.Controllers
         }
         public IActionResult Index()
         {
-            Random random = new Random();
             var ex = db.Excursions
+                .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
@@ -37,6 +37,7 @@ namespace GalaTour.Controllers
         {
             ViewBag.eCity = db.ExCityes.ToList();
             var ex = db.Excursions
+                .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
@@ -50,13 +51,15 @@ namespace GalaTour.Controllers
             if (ci == 0)
             {
                 var e = db.Excursions
-                .Include(c => c.ExDuration)
-                .Include(c => c.ExCity)
-                .Include(c => c.ExDate)
-                .Include(c => c.ExPrice);
+                    .Include(c => c.ExImage)
+                    .Include(c => c.ExDuration)
+                    .Include(c => c.ExCity)
+                    .Include(c => c.ExDate)
+                    .Include(c => c.ExPrice);
                 return View(e.ToList());
             }
             var ex = db.Excursions
+                .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)

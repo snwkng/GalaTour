@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace GalaTour.Models
 {
-    public class ExDuration
+    public class ExImage
     {
         public int ID { get; set; }
-        public string Duration { get; set; }
+        public string ImageURL { get; set; }
 
         public virtual ICollection<Excursion> Excursions { get; set; }
     }

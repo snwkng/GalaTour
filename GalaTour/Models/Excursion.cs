@@ -11,12 +11,13 @@ namespace GalaTour.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string ImageURL { get; set; }
+        public int ExImageID { get; set; }
         public int ExDurationID { get; set; }
         public int ExCityID { get; set; }
         public int ExDateID { get; set; }
         public int ExPriceID { get; set; }
 
+        public virtual ExImage ExImage { get; set; }
         public virtual ExDuration ExDuration { get; set; }
         public virtual ExCity ExCity { get; set; }
         public virtual ExDate ExDate { get; set; }

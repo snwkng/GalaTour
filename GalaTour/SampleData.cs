@@ -17,7 +17,7 @@ namespace GalaTour
                     {
                         Name = "Экскурсионный тур в Москву",
                         Description = "Однодневный экскурсионный тур в столицу нашей Родины",
-                        ImageURL = "/images/crimea.jpg",
+                        ExImageID = 3,
                         ExDurationID = 1,
                         ExCityID = 1,
                         ExDateID = 2,
@@ -27,7 +27,7 @@ namespace GalaTour
                     {
                         Name = "Сказки Казани",
                         Description = "Незабываемое путешествие в Казань",
-                        ImageURL = "/images/crimea.jpg",
+                        ExImageID = 1,
                         ExDurationID = 2,
                         ExCityID = 2,
                         ExDateID = 1,
@@ -37,78 +37,95 @@ namespace GalaTour
                     {
                         Name = "Санкт-Петербург - Северная столица России",
                         Description = "Посетите роскошные места Сантк-Петербурга, а также Петергоф",
-                        ImageURL = "/images/crimea.jpg",
+                        ExImageID = 2,
                         ExDurationID = 3,
                         ExCityID = 3,
                         ExDateID = 1,
                         ExPriceID = 3
                     }
                 );
-                if (!context.ExCityes.Any())
+                if (!context.ExImages.Any())
                 {
-                    context.ExCityes.AddRange(
-                        new ExCity
+                    context.ExImages.AddRange(
+                        new ExImage
                         {
-                            City = "Москва"
+                            ImageURL = "/images/crimea.jpg"
                         },
-                        new ExCity
+                        new ExImage
                         {
-                            City = "Казань"
+                            ImageURL = "/images/jp.jpg"
                         },
-                        new ExCity
+                        new ExImage
                         {
-                            City = "Санкт-Петербург"
+                            ImageURL = "/images/ded_moroz_msk.jpg"
                         }
                     );
-                    if (!context.ExDurations.Any())
+                    if (!context.ExCityes.Any())
                     {
-                        context.ExDurations.AddRange(
-                            new ExDuration
+                        context.ExCityes.AddRange(
+                            new ExCity
                             {
-                                Duration = 1
+                                City = "Москва"
                             },
-                            new ExDuration
+                            new ExCity
                             {
-                                Duration = 3
+                                City = "Казань"
                             },
-                            new ExDuration
+                            new ExCity
                             {
-                                Duration = 5
+                                City = "Санкт-Петербург"
                             }
                         );
-                        if (!context.ExDates.Any())
+                        if (!context.ExDurations.Any())
                         {
-                            context.ExDates.AddRange(
-                                new ExDate
+                            context.ExDurations.AddRange(
+                                new ExDuration
                                 {
-                                    Date = new DateTime(2019, 7, 19)
+                                    Duration = "1 день"
                                 },
-                                new ExDate
+                                new ExDuration
                                 {
-                                    Date = new DateTime(2019, 9, 19)
+                                    Duration = "3 дня"
                                 },
-                                new ExDate
+                                new ExDuration
                                 {
-                                    Date = new DateTime(2019, 10, 19)
+                                    Duration = "5 дней"
                                 }
                             );
-                            if (!context.ExPrices.Any())
+                            if (!context.ExDates.Any())
                             {
-                                context.ExPrices.AddRange(
-                                    new ExPrice
+                                context.ExDates.AddRange(
+                                    new ExDate
                                     {
-                                        Price = 9560
+                                        Date = new DateTime(2019, 7, 19)
                                     },
-                                    new ExPrice
+                                    new ExDate
                                     {
-                                        Price = 12000
+                                        Date = new DateTime(2019, 9, 19)
                                     },
-                                    new ExPrice
+                                    new ExDate
                                     {
-                                        Price = 10200
+                                        Date = new DateTime(2019, 10, 19)
                                     }
                                 );
-                                context.SaveChanges();
+                                if (!context.ExPrices.Any())
+                                {
+                                    context.ExPrices.AddRange(
+                                        new ExPrice
+                                        {
+                                            Price = 9560
+                                        },
+                                        new ExPrice
+                                        {
+                                            Price = 12000
+                                        },
+                                        new ExPrice
+                                        {
+                                            Price = 10200
+                                        }
+                                    );
+                                    context.SaveChanges();
+                                }
                             }
                         }
                     }

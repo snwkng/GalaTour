@@ -158,10 +158,10 @@
             {
                 <div class="col-margin-bottom col-md-3 col-sm-6">
                     <div class="card pop-excursions__card">
-                        <div class="pop-excursions__card-image"></div>
+                        <div class="pop-excursions__card-image" style="background-image: url('@item.ExImage.ImageURL');"></div>
                         <div class="pop-excursions__card-body">
                             <h4>@item.Name</h4>
-                            <p>@item.ExDuration.Duration дня <span>от @item.ExPrice.Price &#8381;</span></p>
+                            <p>@item.ExDuration.Duration <span>от @item.ExPrice.Price &#8381;</span></p>
                             <p class="pop-excursions__date">@item.ExDate.Date.ToString("dd.MM.yyyy")</p>
                         </div>
                     </div>
