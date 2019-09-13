@@ -752,3 +752,18 @@
     }
 }
 /* about end */
+
+/* contacts */
+.contacts {
+    text-align: center;
+    margin-top: 16px;
+}
+.contacts > h1 {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: normal;
+    color: rgb(72, 72, 72) !important;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

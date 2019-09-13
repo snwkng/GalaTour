@@ -67,6 +67,10 @@ namespace GalaTour.Controllers
                 .Where(c => c.ExCity.ID == ci);
             return View(ex.ToList());
         }
+        public IActionResult Contacts()
+        {
+            return View();
+        }
         public IActionResult About()
         {
             return View();
