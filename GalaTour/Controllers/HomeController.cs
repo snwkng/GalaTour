@@ -18,13 +18,15 @@ namespace GalaTour.Controllers
         }
         public IActionResult Index()
         {
+            var date = DateTime.Today;
             var ex = db.Excursions
                 .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
-                .Include(c => c.ExPrice);
-            ViewBag.eCity = db.ExCityes.ToList();
+                .Include(c => c.ExPrice)
+                .Where(c => c.ExDate.Date < date);
+            ViewBag.eCity = ex.ToList();
             return View(ex.ToList());
         }
         [HttpPost]
