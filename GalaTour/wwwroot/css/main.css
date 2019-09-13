@@ -755,10 +755,9 @@
 
 /* contacts */
 .contacts {
-    text-align: center;
     margin-top: 16px;
 }
-.contacts > h1 {
+.contacts > .container > h1 {
     font-weight: 800;
     font-size: 28px;
     line-height: 30px;
@@ -767,3 +766,9 @@
     padding-top: 2px;
     padding-bottom: 2px;
 }
+.contacts .row .col-sm-4 {
+    text-align: center;
+}
+.contacts .row .col-sm-4 i {
+    font-size: 32px;
+} 
