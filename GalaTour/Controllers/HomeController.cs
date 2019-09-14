@@ -11,8 +11,8 @@ namespace GalaTour.Controllers
 {
     public class HomeController : Controller
     {
-        private ExcursionContext db;
-        DateTime date = DateTime.Today;
+        private readonly ExcursionContext db;
+        readonly DateTime date = DateTime.Today;
         public HomeController(ExcursionContext context)
         {
             db = context;
