@@ -49,10 +49,10 @@
                     <div class="form-group col-md-6">
                         <label for="inputState" class="header__form-label">Куда</label>
                         <select id="inputState" name="ci" class="form-control form__select">
-                            <option selected>Все направления</option>
+                            <option value="0" selected>Все направления</option>
                             @foreach (var item1 in ViewBag.eCity)
                             {
-                                <option value="@item1.ID">@item1.City</option>
+                                <option value="@item1.ExCity.ID">@item1.ExCity.City</option>
                             }
                         </select>
                     </div>

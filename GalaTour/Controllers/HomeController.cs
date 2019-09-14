@@ -12,44 +12,54 @@ namespace GalaTour.Controllers
     public class HomeController : Controller
     {
         private ExcursionContext db;
+        DateTime date = DateTime.Today;
         public HomeController(ExcursionContext context)
         {
             db = context;
         }
         public IActionResult Index()
         {
-            var date = DateTime.Today;
             var ex = db.Excursions
                 .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
                 .Include(c => c.ExPrice)
-                .Where(c => c.ExDate.Date < date);
+                .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
             ViewBag.eCity = ex.ToList();
             return View(ex.ToList());
         }
         [HttpPost]
         public IActionResult Index(int ci)
         {
-            ViewBag.eCity = db.ExCityes.ToList();
+            ViewBag.eCity = db.Excursions
+                   .Include(c => c.ExCity)
+                   .Include(c => c.ExDate)
+                   .Where(c => c.ExDate.Date > date).ToList();
             return RedirectToAction("Excursions", "Home", new { ci }); // попробовать реализовать через post
         }
         public IActionResult Excursions()
         {
-            ViewBag.eCity = db.ExCityes.ToList();
+            ViewBag.eCity = db.Excursions
+                   .Include(c => c.ExCity)
+                   .Include(c => c.ExDate)
+                   .Where(c => c.ExDate.Date > date).ToList();
             var ex = db.Excursions
                 .Include(c => c.ExImage)
                 .Include(c => c.ExDuration)
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
-                .Include(c => c.ExPrice);
+                .Include(c => c.ExPrice)
+                .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
             return View(ex.ToList());
         }
         [HttpGet]
         public IActionResult Excursions(int ci)
         {
-            ViewBag.eCity = db.ExCityes.ToList();
+            ViewBag.eCity = db.Excursions
+                   .Include(c => c.ExCity)
+                   .Include(c => c.ExDate)
+                   .Where(c => c.ExDate.Date > date).ToList();
             if (ci == 0)
             {
                 var e = db.Excursions
@@ -57,7 +67,8 @@ namespace GalaTour.Controllers
                     .Include(c => c.ExDuration)
                     .Include(c => c.ExCity)
                     .Include(c => c.ExDate)
-                    .Include(c => c.ExPrice);
+                    .Include(c => c.ExPrice)
+                    .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
                 return View(e.ToList());
             }
             var ex = db.Excursions
@@ -66,7 +77,8 @@ namespace GalaTour.Controllers
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
                 .Include(c => c.ExPrice)
-                .Where(c => c.ExCity.ID == ci);
+                .Where(c => c.ExCity.ID == ci)
+                .Where(c => c.ExDate.Date > date);
             return View(ex.ToList());
         }
         public IActionResult Contacts()

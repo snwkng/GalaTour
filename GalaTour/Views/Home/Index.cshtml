@@ -92,10 +92,10 @@
                     <div class="form-group col-md-6">
                         <label for="inputExcursion__where" class="header__form-label">Куда</label>
                         <select id="inputExcursion__where" name="ci" class="form-control form__select">
-                            <option selected>Все направления</option>
+                            <option value="0" selected>Все направления</option>
                             @foreach (var item1 in ViewBag.eCity)
                             {
-                                <option value="@item1.ID">@item1.City</option>
+                                <option value="@item1.ExCity.ID">@item1.ExCity.City</option>
                             }
                         </select>
                     </div>
@@ -158,16 +158,18 @@
         <div class="row justify-content-center">
             @foreach (var item in Model.Take(4))
             {
-                <div class="col-margin-bottom col-md-3 col-sm-6">
-                    <div class="card pop-excursions__card">
-                        <div class="pop-excursions__card-image" style="background-image: url('@item.ExImage.ImageURL');"></div>
-                        <div class="pop-excursions__card-body">
-                            <h4>@item.Name</h4>
-                            <p>@item.ExDuration.Duration <span>от @item.ExPrice.Price &#8381;</span></p>
-                            <p class="pop-excursions__date">@item.ExDate.Date.ToString("dd.MM.yyyy")</p>
+                <a href="#">
+                    <div class="col-margin-bottom col-md-3 col-sm-6">
+                        <div class="card pop-excursions__card">
+                            <div class="pop-excursions__card-image" style="background-image: url('@item.ExImage.ImageURL');"></div>
+                            <div class="pop-excursions__card-body">
+                                <h4>@item.Name</h4>
+                                <p>@item.ExDuration.Duration <span>от @item.ExPrice.Price &#8381;</span></p>
+                                <p class="pop-excursions__date">@item.ExDate.Date.ToString("dd.MM.yyyy")</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
         <a class="pop-excursions__link" href="~/Home/Excursions">
