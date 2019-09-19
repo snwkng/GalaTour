@@ -803,3 +803,46 @@
     height: 550px;
     border: none;
 }
+
+/* contacts end */
+/* Tours abroad */
+.section-tours-abroad {
+    height: 100vh;
+    background-image: url('../images/tours-abroad.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.tours-abroad-main {
+    text-align: center;
+    margin-top: 20%;
+    padding: 32px;
+    height: 100%;
+    min-width: 700px;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    background: rgba(19, 103, 161, .5)
+}
+.tours-abroad__p {
+    padding-top: 8px;
+    padding-bottom: 16px;
+    color: #fff;
+    font-size: 32px !important;
+    line-height: 30px !important;
+    letter-spacing: normal !important;
+}
+.tours-abroad-main h2 {
+    font-size: 32px !important;
+    line-height: 30px !important;
+    letter-spacing: normal !important;
+    color: #fff !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-weight: normal !important;
+}
+.tours-abroad-main h3 {
+    padding-top: 16px;
+    font-size: 24px;
+    line-height: 22px;
+    letter-spacing: normal;
+    color: #fff;
+    font-weight: normal !important;
+}
