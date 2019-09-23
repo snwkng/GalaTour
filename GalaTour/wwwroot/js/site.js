@@ -7,6 +7,16 @@ $(function () {
         container: 'body'
     })
 });
+$(function () {
+    $('.btn-tours-abroad__phone').popover({
+        container: 'body'
+    })
+});
+$(function () {
+    $('.btn-tours-abroad__email').popover({
+        container: 'body'
+    })
+});
 $("#click").click(function () {
     $('html, body').animate({
         scrollTop: $("#bus-rent").offset().top

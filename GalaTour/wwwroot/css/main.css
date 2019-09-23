@@ -771,11 +771,9 @@
 .contacts .row .col-sm-4 {
     text-align: center;
 }
-.contacts .row .col-sm-4 i {
+.contacts__icon {
     font-size: 28px;
     color: #fff;
-}
-.contacts__icon {
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     position: relative;
     z-index: 1;
@@ -807,17 +805,17 @@
 /* contacts end */
 /* Tours abroad */
 .section-tours-abroad {
-    height: 100vh;
+    height: auto;
     background-image: url('../images/tours-abroad.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .tours-abroad-main {
     text-align: center;
-    margin-top: 20%;
+    margin: 128px 0px 128px 0px;
     padding: 32px;
-    height: 100%;
-    min-width: 700px;
+    height: auto;
+    max-width: 700px;
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     background: rgba(19, 103, 161, .5)
 }
@@ -825,18 +823,18 @@
     padding-top: 8px;
     padding-bottom: 16px;
     color: #fff;
-    font-size: 32px !important;
-    line-height: 30px !important;
+    font-size: 32px;
+    line-height: 30px;
     letter-spacing: normal !important;
 }
 .tours-abroad-main h2 {
-    font-size: 32px !important;
-    line-height: 30px !important;
-    letter-spacing: normal !important;
-    color: #fff !important;
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-    font-weight: normal !important;
+    font-size: 32px;
+    line-height: 30px;
+    letter-spacing: normal;
+    color: #fff;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: normal;
 }
 .tours-abroad-main h3 {
     padding-top: 16px;
@@ -845,4 +843,35 @@
     letter-spacing: normal;
     color: #fff;
     font-weight: normal !important;
+}
+.tours-abroad__contacts {
+    padding: 24px 0px 16px 0px;
+}
+.tours-abroad__contacts-icon {
+    font-size: 28px;
+    color: #fff;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 12px 4px 0px 3px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #ff5722;
+    vertical-align: middle;
+}
+@media(max-width: 992px) {
+    .tours-abroad-main {
+        margin: 80px 0px 20px 0px;
+    }
+
+    .tours-abroad__contacts-icon {
+        margin: 0px;
+    }
 }
