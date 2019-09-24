@@ -24,12 +24,16 @@ $("#click").click(function () {
 });
 /*$('#bus-tours__button').click(function () {
     $('#bus-tours__form').css('display', 'block');
+    $('.btn-bus-tours').css('color', '#ff5722');
     $('#excursions__form').css('display', 'none');
+    $('.btn-excursions').css('color', '#ffffff');
     $('#header__text').text("Поиск туров к морю из Орла").html();
 });*/
 $('#excursions__button').click(function () {
     $('#excursions__form').css('display', 'block');
+    $('.btn-excursions').css('color', '#009688');
     $('#bus-tours__form').css('display', 'none');
+    $('.btn-bus-tours').css('color', '#ffffff');
     $('#header__text').text("Поиск Экскурсионных туров из Орла").html();
 });
 // Tourist collapse
