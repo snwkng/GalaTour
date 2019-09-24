@@ -28,18 +28,18 @@
                 <div class="col-md-4 footer__block">
                     <h5><span style="color: #ff5722;">G</span>ala<span style="color: #009688;">T</span>our</h5>
                     <ul>
-                        <li><a href="~/Home/About/">О нас</a></li>
-                        <li><a href="~/Home/Contacts/">Контакты</a></li>
-                        <li><a href="~/Home/Tourist/">Памятка туристу</a></li>
+                        <li>@Html.ActionLink("О нас", "About")</li>
+                        <li>@Html.ActionLink("Контакты", "Contacts")</li>
+                        <li>@Html.ActionLink("Памятка туристу", "Tourist")</li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer__block">
                     <h5>Услуги</h5>
                     <ul>
-                        <li><a href="~/Home/Tours_abroad/">Подбор тура</a></li>
-                        <li><a href="#">Автобусные туры к морю</a></li>
-                        <li><a href="~/Home/Excursions/">Экскурсионные туры</a></li>
-                        <li><a href="~/Home/Index/#bus-rent">Аренда автобуса</a></li>
+                        <li>@Html.ActionLink("Подбор тура", "Tours_abroad")</li>
+                        <li>@Html.ActionLink("Автобусные туры к морю", "Bus_tours")</li>
+                        <li>@Html.ActionLink("Экскурсионные туры", "Excursions")</li>
+                        <li><a asp-controller="Home" asp-action="Index" asp-fragment="bus-rent">Аренда автобуса</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer__block">
