@@ -91,7 +91,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputExcursion__where" class="header__form-label">Куда</label>
-                        <select id="inputExcursion__where" name="ci" class="form-control form__select">
+                        <select id="inputExcursion__where" name="id" class="form-control form__select">
                             <option value="0" selected>Все направления</option>
                             @foreach (var item1 in ViewBag.eCity)
                             {
@@ -159,7 +159,7 @@
             @foreach (var item in Model.Take(4))
             {
             <div class="col-margin-bottom col-md-3 col-sm-6">
-                <a href="#">
+                <a asp-controller="Home" asp-action="Excursions" asp-route-id="@item.ExCity.ID">
                     <div class="card pop-excursions__card">
                         <div class="pop-excursions__card-image" style="background-image: url('@item.ExImage.ImageURL');"></div>
                         <div class="pop-excursions__card-body">
@@ -172,7 +172,7 @@
             </div>
             }
         </div>
-        <a class="pop-excursions__link" href="~/Home/Excursions">
+        <a class="pop-excursions__link" asp-controller="Home" asp-action="Excursions">
             Все экскурсии <i class="material-icons"
                              style="vertical-align: middle;">keyboard_arrow_right</i>
         </a>

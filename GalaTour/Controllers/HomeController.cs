@@ -17,27 +17,24 @@ namespace GalaTour.Controllers
         {
             db = context;
         }
-        public IActionResult Index()
-        {
-            var ex = db.Excursions
-                .Include(c => c.ExImage)
-                .Include(c => c.ExDuration)
-                .Include(c => c.ExCity)
-                .Include(c => c.ExDate)
-                .Include(c => c.ExPrice)
-                .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
-            ViewBag.eCity = ex.ToList();
-            return View(ex.ToList());
-        }
+         public IActionResult Index()
+         {
+             var ex = db.Excursions
+                 .Include(c => c.ExImage)
+                 .Include(c => c.ExDuration)
+                 .Include(c => c.ExCity)
+                 .Include(c => c.ExDate)
+                 .Include(c => c.ExPrice)
+                 .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
+             ViewBag.eCity = ex.ToList();
+             return View(ex.ToList());
+         }
         [HttpPost]
-        public IActionResult Index(int ci)
+        public IActionResult Index(int id)
         {
-            ViewBag.eCity = db.Excursions
-                   .Include(c => c.ExCity)
-                   .Include(c => c.ExDate)
-                   .Where(c => c.ExDate.Date > date).ToList();
-            return RedirectToAction("Excursions", "Home", new { ci }); // попробовать реализовать через post
+            return RedirectToRoute("excursions", new { id });
         }
+
         public IActionResult Excursions()
         {
             ViewBag.eCity = db.Excursions
@@ -54,13 +51,13 @@ namespace GalaTour.Controllers
             return View(ex.ToList());
         }
         [HttpGet]
-        public IActionResult Excursions(int ci)
+        public IActionResult Excursions(int id)
         {
             ViewBag.eCity = db.Excursions
                    .Include(c => c.ExCity)
                    .Include(c => c.ExDate)
                    .Where(c => c.ExDate.Date > date).ToList();
-            if (ci == 0)
+            if (id == 0)
             {
                 var e = db.Excursions
                     .Include(c => c.ExImage)
@@ -77,7 +74,7 @@ namespace GalaTour.Controllers
                 .Include(c => c.ExCity)
                 .Include(c => c.ExDate)
                 .Include(c => c.ExPrice)
-                .Where(c => c.ExCity.ID == ci)
+                .Where(c => c.ExCity.ID == id)
                 .Where(c => c.ExDate.Date > date);
             return View(ex.ToList());
         }
