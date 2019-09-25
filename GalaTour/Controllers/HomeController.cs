@@ -17,24 +17,18 @@ namespace GalaTour.Controllers
         {
             db = context;
         }
-         public IActionResult Index()
-         {
-             var ex = db.Excursions
-                 .Include(c => c.ExImage)
-                 .Include(c => c.ExDuration)
-                 .Include(c => c.ExCity)
-                 .Include(c => c.ExDate)
-                 .Include(c => c.ExPrice)
-                 .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
-             ViewBag.eCity = ex.ToList();
-             return View(ex.ToList());
-         }
-        [HttpPost]
-        public IActionResult Index(int id)
+        public IActionResult Index()
         {
-            return RedirectToRoute("excursions", new { id });
+            var ex = db.Excursions
+                .Include(c => c.ExImage)
+                .Include(c => c.ExDuration)
+                .Include(c => c.ExCity)
+                .Include(c => c.ExDate)
+                .Include(c => c.ExPrice)
+                .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
+            ViewBag.eCity = ex.ToList();
+            return View(ex.ToList());
         }
-
         public IActionResult Excursions()
         {
             ViewBag.eCity = db.Excursions
@@ -50,7 +44,7 @@ namespace GalaTour.Controllers
                 .Where(c => c.ExDate.Date > date); // Вывод только предстоящих экскурсий
             return View(ex.ToList());
         }
-        [HttpGet]
+        [HttpPost]
         public IActionResult Excursions(int id)
         {
             ViewBag.eCity = db.Excursions
