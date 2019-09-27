@@ -83,6 +83,10 @@ namespace GalaTour.Controllers
                 .Where(c => c.ExCity.ID == id).ToList();
             return View(ex);
         }
+        public IActionResult BusTours()
+        {
+            return View();
+        }
         public IActionResult Contacts()
         {
             return View();
@@ -95,7 +99,7 @@ namespace GalaTour.Controllers
         {
             return View();
         }
-        public IActionResult Tours_abroad()
+        public IActionResult ToursAbroad()
         {
             return View();
         }

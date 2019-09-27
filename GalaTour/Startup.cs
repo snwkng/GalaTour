@@ -62,10 +62,10 @@ namespace GalaTour
             app.UseMvc(routes =>
             {
                 routes.MapRoute("home", "/", new { controller = "Home", action = "Index" });
-                routes.MapRoute("bus-tours", "bus-tours", new { controller = "Home", action = "Bus_tours" });
+                routes.MapRoute("bus-tours", "bus-tours", new { controller = "Home", action = "BusTours" });
                 routes.MapRoute("excursions", "excursions", new { controller = "Home", action = "Excursions" });
                 routes.MapRoute("excursion-tour", "excursion/{id:int?}", new { controller = "Home", action = "ExTour" });
-                routes.MapRoute("tours-abroad", "tours-abroad", new { controller = "Home", action = "Tours_abroad" });
+                routes.MapRoute("tours-abroad", "tours-abroad", new { controller = "Home", action = "ToursAbroad" });
                 routes.MapRoute("contacts", "contacts", new { controller = "Home", action = "Contacts" });
                 routes.MapRoute("about", "about", new { controller = "Home", action = "About" });
                 routes.MapRoute("tourist", "tourist", new { controller = "Home", action = "Tourist" });
