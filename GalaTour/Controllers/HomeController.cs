@@ -72,6 +72,17 @@ namespace GalaTour.Controllers
                 .Where(c => c.ExDate.Date > date);
             return View(ex.ToList());
         }
+        public IActionResult ExTour(int id)
+        {
+            var ex = db.Excursions
+                .Include(c => c.ExImage)
+                .Include(c => c.ExDuration)
+                .Include(c => c.ExCity)
+                .Include(c => c.ExDate)
+                .Include(c => c.ExPrice)
+                .Where(c => c.ExCity.ID == id).ToList();
+            return View(ex);
+        }
         public IActionResult Contacts()
         {
             return View();

@@ -665,9 +665,57 @@
     }
 }
 /* excursions end */
+/* excursion tour page */
 
-
-
+.ex-tour {
+    background-color: #f5f5f5;
+    padding: 64px 0px 32px 0px;
+}
+.ex-tour-main {
+    background-color: #fff;
+    padding: 0px !important;
+}
+.ex-tour-main h1 {
+    margin: 0;
+    padding: 16px;
+    font-size: 26px;
+    line-height: 35px;
+    color: #000;
+}
+.ex-features {
+    padding-left: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+    list-style: none;
+    line-height: 20px;
+    font-weight: 300;
+    color: #000;
+}
+.ex-features > li {
+    padding: 0 15px 5px 0;
+    white-space: nowrap;
+}
+.ex-features > li > i {
+    color: #ff5722;
+}
+.ex-img-responsive {
+    width: 100%;
+    height: auto;
+}
+.ex-tour-main h3 {
+    font-size: 19px;
+    line-height: 25px;
+    color: #000;
+    display: block;
+    padding: 16px;
+    text-transform: uppercase;
+}
+.ex-tour-main p {
+    padding: 8px 24px 8px 16px;
+    text-align: justify;
+}
+/* excursion tour page end */
 /************************************************************************************************************************/
 /* section tourist */
 .section-tourist {

@@ -96,7 +96,7 @@
                             <span>Отправление: </span> @item.ExDate.Date.ToString("dd.MM.yyyy")
 
                         </p>
-                        <a href="" class="ex-card__content-link">
+                        <a class="ex-card__content-link" asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ExCity.ID">
                             Детали тура <i class="material-icons"
                                            style="vertical-align: middle">
                                 arrow_forward

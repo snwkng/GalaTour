@@ -159,7 +159,7 @@
             @foreach (var item in Model.Take(4))
             {
             <div class="col-margin-bottom col-md-3 col-sm-6">
-                <a asp-controller="Home" asp-action="Excursions" asp-route-id="@item.ExCity.ID">
+                <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ExCity.ID">
                     <div class="card pop-excursions__card">
                         <div class="pop-excursions__card-image" style="background-image: url('@item.ExImage.ImageURL');"></div>
                         <div class="pop-excursions__card-body">
