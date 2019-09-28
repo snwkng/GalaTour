@@ -40,7 +40,7 @@
             </div>
             <div class="header-nav">
             </div>
-            <form class="justify-content-center align-items-center" asp-action="excursions" method="post">
+            <form id="form" class="justify-content-center align-items-center" asp-action="excursions" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputState" class="header__form-label">Откуда</label>
@@ -72,7 +72,7 @@
 </section>
 <section class="section-default excursions">
     <div class="container">
-        <h2 class="excursions__text">Экскурсионные туры из Орла</h2>
+        <h2 class="excursions__text">Экскурсии из Орла: @ViewBag.SearchCount</h2>
         <div class="row">
             @foreach (var item in Model)
             {
