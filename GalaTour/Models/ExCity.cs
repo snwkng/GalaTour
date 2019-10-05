@@ -9,5 +9,7 @@ namespace GalaTour.Models
     {
         public int ID { get; set; }
         public string City { get; set; }
+
+        public virtual ICollection<Excursion> Excursions { get; set; }
     }
 }

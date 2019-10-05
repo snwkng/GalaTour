@@ -46,9 +46,9 @@
                     <ul class="ex-features">
                         <li><i class="far fa-clock"></i> @item.ExDuration.Duration</li>
                         <li><i class="far fa-calendar-alt"></i> @item.ExDate.Date.ToString("dd.MM.yyyy")</li>
-                        <li><i class="fas fa-ruble-sign"></i> @item.ExPrice.Price</li>
+                        <li><i class="fas fa-ruble-sign"></i> от @item.ExPrice.Price&#8381;</li>
                     </ul>
-                    <img class="ex-img-responsive" src="@item.ExImage.ImageURL" />
+                    <img class="ex-img-responsive" src="/images/@item.ExImage.ImageURL" />
                     <h3>Описание</h3>
                     <p>@item.Description</p>
                     <hr>

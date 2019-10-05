@@ -77,7 +77,7 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-12 ex-card">
-                    <div class="ex-card__image rounded" style="background-image: url('@item.ExImage.ImageURL');"></div>
+                    <div class="ex-card__image rounded" style="background-image: url('/images/@item.ExImage.ImageURL');"></div>
                     <div class="ex-card__content">
                         <h3>@item.Name</h3>
                         <span class="ex-card__content-price">

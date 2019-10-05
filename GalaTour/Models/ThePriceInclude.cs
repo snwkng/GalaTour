@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace GalaTour.Models
 {
-    public class ExDate
+    public class ThePriceInclude
     {
         public int ID { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public string PriceInclude { get; set; }
 
         public virtual ICollection<Excursion> Excursions { get; set; }
     }
