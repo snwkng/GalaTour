@@ -1,0 +1,79 @@
+﻿@model GalaTour.Models.Excursion
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Excursion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThePriceInclude" class="control-label"></label>
+                <input asp-for="ThePriceInclude" class="form-control" />
+                <span asp-validation-for="ThePriceInclude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageURL" class="control-label"></label>
+                <input asp-for="ImageURL" class="form-control" />
+                <span asp-validation-for="ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HotelName" class="control-label"></label>
+                <input asp-for="HotelName" class="form-control" />
+                <span asp-validation-for="HotelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HotelLink" class="control-label"></label>
+                <input asp-for="HotelLink" class="form-control" />
+                <span asp-validation-for="HotelLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocLink" class="control-label"></label>
+                <input asp-for="DocLink" class="form-control" />
+                <span asp-validation-for="DocLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

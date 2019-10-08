@@ -44,15 +44,20 @@
                 {
                     <h1>@item.Name</h1>
                     <ul class="ex-features">
-                        <li><i class="far fa-clock"></i> @item.ExDuration.Duration</li>
-                        <li><i class="far fa-calendar-alt"></i> @item.ExDate.Date.ToString("dd.MM.yyyy")</li>
-                        <li><i class="fas fa-ruble-sign"></i> от @item.ExPrice.Price&#8381;</li>
+                        <li><i class="fas fa-map-marker-alt"></i> @item.City</li>
+                        <li><i class="far fa-clock"></i> @item.Duration</li>
+                        <li><i class="far fa-calendar-alt"></i> @item.Date.ToString("dd.MM.yyyy")</li>
+                        <li><i class="fas fa-ruble-sign"></i> от @item.Price&#8381;</li>
+                        @if (item.HotelName != "")
+                        {
+                            <li><i class="fas fa-hotel"></i> <a href="@item.HotelLink">@item.HotelName</a></li>
+                        }
                     </ul>
-                    <img class="ex-img-responsive" src="/images/@item.ExImage.ImageURL" />
+                    <img class="ex-img-responsive" src="/images/ex/@item.ImageURL" />
                     <h3>Описание</h3>
-                    <p>@item.Description</p>
+                    <div id="description">@item.Description</div>
                     <hr>
-                    <p>
+                    <p class="common-text">
                         Компания организатор оставляет за собой право вносить некоторые изменения в программу тура без уменьшения общего объема и качества услуг, в том числе предоставлять замену отеля на равнозначный. Компания организатор не несет ответственности за задержки, возникшие в результате   пробок на дорогах, в случае тяжелой дорожной ситуации возможны поздние приезды в отели, объекты экскурсий. В случае особых непредвиденных ситуаций возможны изменения в порядке проведения экскурсий, объем программы при этом не меняется.
                     </p>
                 }

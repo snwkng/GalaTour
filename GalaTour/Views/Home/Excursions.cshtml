@@ -50,9 +50,9 @@
                         <label for="inputExcursion__where" class="header__form-label">Куда</label>
                         <select id="inputExcursion__where" name="id" class="form-control form__select">
                             <option value="0" selected>Все направления</option>
-                            @foreach (var item1 in ViewBag.eCity)
+                            @foreach (var item in ViewBag.eCity)
                             {
-                                <option value="@item1.ExCity.ID">@item1.ExCity.City</option>
+                                <option value="@item.ID">@item.City</option>
                             }
                         </select>
                     </div>
@@ -77,26 +77,26 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-12 ex-card">
-                    <div class="ex-card__image rounded" style="background-image: url('/images/@item.ExImage.ImageURL');"></div>
+                    <div class="ex-card__image rounded" style="background-image: url('/images/ex/@item.ImageURL');"></div>
                     <div class="ex-card__content">
                         <h3>@item.Name</h3>
                         <span class="ex-card__content-price">
-                            @item.ExPrice.Price &#8381
+                            @item.Price &#8381
                         </span>
                         <p class="ex-card__content-text">
-                            <span>Город: </span> @item.ExCity.City
+                            <span>Город: </span> @item.City
                         </p>
                         <p class="ex-card__content-text">
                             <span>Проживание: </span> отель
                         </p>
                         <p class="ex-card__content-text">
-                            <span>Длительность: </span> @item.ExDuration.Duration
+                            <span>Длительность: </span> @item.Duration
                         </p>
                         <p class="ex-card__content-text">
-                            <span>Отправление: </span> @item.ExDate.Date.ToString("dd.MM.yyyy")
+                            <span>Отправление: </span> @item.Date.ToString("dd.MM.yyyy")
 
                         </p>
-                        <a class="ex-card__content-link" asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ExCity.ID">
+                        <a class="ex-card__content-link" asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
                             Детали тура <i class="material-icons"
                                            style="vertical-align: middle">
                                 arrow_forward

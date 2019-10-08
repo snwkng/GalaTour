@@ -1,0 +1,84 @@
+﻿@model GalaTour.Models.Excursion
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Excursion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ThePriceInclude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThePriceInclude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotelName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotelLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DocLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocLink)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -93,9 +93,9 @@
                         <label for="inputExcursion__where" class="header__form-label">Куда</label>
                         <select id="inputExcursion__where" name="id" class="form-control form__select">
                             <option value="0" selected>Все направления</option>
-                            @foreach (var item1 in ViewBag.eCity)
+                            @foreach (var item in ViewBag.eCity)
                             {
-                                <option value="@item1.ExCity.ID">@item1.ExCity.City</option>
+                                <option value="@item.ID">@item.City</option>
                             }
                         </select>
                     </div>
@@ -159,13 +159,13 @@
             @foreach (var item in Model.Take(4))
             {
             <div class="col-margin-bottom col-md-3 col-sm-6">
-                <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ExCity.ID">
+                <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
                     <div class="card pop-excursions__card">
-                        <div class="pop-excursions__card-image" style="background-image: url('/images/@item.ExImage.ImageURL');"></div>
+                        <div class="pop-excursions__card-image" style="background-image: url('/images/ex/@item.ImageURL');"></div>
                         <div class="pop-excursions__card-body">
                             <h4>@item.Name</h4>
-                            <p>@item.ExDuration.Duration <span>от @item.ExPrice.Price &#8381;</span></p>
-                            <p class="pop-excursions__date">@item.ExDate.Date.ToString("dd.MM.yyyy")</p>
+                            <p>@item.Duration <span>от @item.Price &#8381;</span></p>
+                            <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
                         </div>
                     </div>
                 </a>

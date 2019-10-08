@@ -78,3 +78,22 @@ $('#VP').click(function () {
     $('#AT').removeClass("active");
 });
 // Tourist collapse end
+
+
+
+// Excursion Tour
+var string = document.getElementById("description").textContent;
+function ReWrite(text) {
+    text = text.replace(/1 день:/, "<p>1 День:</p>");
+    text = text.replace(/2 день:/, "<p>2 День:</p>");
+    text = text.replace(/3 день:/, "<p>3 День:</p>");
+    text = text.replace(/4 день:/, "<p>4 День:</p>");
+    text = text.replace(/5 день:/, "<p>5 День:</p>");
+    text = text.replace(/6 день:/, "<p>6 День:</p>");
+    text = text.replace(/7 день:/, "<p>7 День:</p>");
+    text = text.replace(/8 день:/, "<p>8 День:</p>");
+    text = text.replace(/9 день:/, "<p>9 День:</p>");
+
+    document.getElementById("description").innerHTML = text;
+}
+ReWrite(string);

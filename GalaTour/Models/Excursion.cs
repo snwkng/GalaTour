@@ -8,23 +8,19 @@ namespace GalaTour.Models
 {
     public class Excursion
     {
+        [Key]
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int ThePriceIncludeID { get; set; }
-        public int ExImageID { get; set; }
-        public int ExDurationID { get; set; }
-        public int ExCityID { get; set; }
-        public int ExDateID { get; set; }
-        public int ExPriceID { get; set; }
-        public int ExHotelID { get; set; }
-
-        public virtual ThePriceInclude ThePriceInclude { get; set; }
-        public virtual ExImage ExImage { get; set; }
-        public virtual ExDuration ExDuration { get; set; }
-        public virtual ExCity ExCity { get; set; }
-        public virtual ExDate ExDate { get; set; }
-        public virtual ExPrice ExPrice { get; set; }
-        public virtual ExHotel ExHotel { get; set; }
+        public string ThePriceInclude { get; set; }
+        public string ImageURL { get; set; }
+        public string Duration { get; set; }
+        public string City { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
+        public int Price { get; set; }
+        public string HotelName { get; set; }
+        public string HotelLink { get; set; }
+        public string DocLink { get; set; }
     }
 }

@@ -711,12 +711,22 @@
     padding: 16px;
     text-transform: uppercase;
 }
-.ex-tour-main p {
+.ex-tour-main #description {
+    padding: 8px 24px 8px 16px;
+    text-align: justify;
+}
+
+.ex-tour-main #description p {
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.ex-tour-main .common-text {
     padding: 8px 24px 8px 16px;
     text-align: justify;
 }
 /* excursion tour page end */
-
 /* bus-tours page */
 .bus-tours__no-tour {
     background-image: url('../images/123.jpg');

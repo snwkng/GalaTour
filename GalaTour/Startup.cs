@@ -27,9 +27,9 @@ namespace GalaTour
         public void ConfigureServices(IServiceCollection services)
         {
             // получаем строку подключения из файла конфигурации
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            // добавляем контекст ExcursionsContext в качестве сервиса в приложение
-            services.AddDbContext<ExcursionContext>(options =>
+            string connection = Configuration.GetConnectionString("DefaultConnection");   
+        // добавляем контекст ExcursionsContext в качестве сервиса в приложение
+        services.AddDbContext<ExcursionContext>(options =>
                 options.UseSqlServer(connection));
             services.Configure<CookiePolicyOptions>(options =>
             {
