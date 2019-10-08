@@ -711,7 +711,7 @@
     padding: 16px;
     text-transform: uppercase;
 }
-.ex-tour-main #description {
+.ex-tour-main #description, .ex-tour-main #thePriceInclude {
     padding: 8px 24px 8px 16px;
     text-align: justify;
 }

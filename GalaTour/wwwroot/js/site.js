@@ -82,8 +82,9 @@ $('#VP').click(function () {
 
 
 // Excursion Tour
-var string = document.getElementById("description").textContent;
-function ReWrite(text) {
+var description = document.getElementById("description").textContent;
+var thePriceInclude = document.getElementById("thePriceInclude").textContent;
+function FormatDescription(text) {
     text = text.replace(/1 день:/, "<p>1 День:</p>");
     text = text.replace(/2 день:/, "<p>2 День:</p>");
     text = text.replace(/3 день:/, "<p>3 День:</p>");
@@ -96,4 +97,10 @@ function ReWrite(text) {
 
     document.getElementById("description").innerHTML = text;
 }
-ReWrite(string);
+function FormatThePriceInclude(text) {
+    text = text.replace(/;/gi, ";<br>");
+
+    document.getElementById("thePriceInclude").innerHTML = text;
+}
+FormatDescription(description);
+FormatThePriceInclude(thePriceInclude);
