@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<GalaTour.Models.Excursion>
 @{
+     foreach (var item in Model)
+    {
+    ViewBag.Description = "Экскурсии из Орла - Туристическое агентство ГалаТур";
+    ViewBag.Keywords = "Экскурсии из Орла, Экскурсионные туры из Орла, Экскурсии из Орла по России и СНГ";
+    }
     ViewBag.Title = "Экскурсионные туры из Орла";
 }
 <section class="ex-header">

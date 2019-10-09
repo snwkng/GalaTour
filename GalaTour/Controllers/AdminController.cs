@@ -6,18 +6,62 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GalaTour.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GalaTour.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ExcursionContext _context;
 
+        private readonly string login = "galatour57@bus-orel.ru";
+        private readonly string password = "galatour57";
         public AdminController(ExcursionContext context)
         {
             _context = context;
         }
+        /**** Логика входа в админку *****/
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(string Email, string Password)
+        {
+            if (ModelState.IsValid)
+            {
+                if (login == Email && password == Password)
+                {
+                    await Authenticate(Email); // аутентификация
 
+                    return RedirectToAction("Index", "Admin");
+                }
+                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            }
+            return View();
+        }
+        private async Task Authenticate(string userName)
+        {
+            // создаем один claim
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+            };
+            // создаем объект ClaimsIdentity
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            // установка аутентификационных куки
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        /**** Конец ****/
         // GET: Admin
         public async Task<IActionResult> Index()
         {
