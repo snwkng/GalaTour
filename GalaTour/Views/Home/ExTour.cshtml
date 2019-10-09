@@ -4,7 +4,7 @@
     ViewBag.Keywords = "";
     foreach (var item in Model)
     {
-        ViewBag.Title = "Экскурсионный тур - " + item.Name;
+        ViewBag.Title = "Экскурсионный тур из Орла - " + item.Name;
     }
 }
 <section class="section-tourist">
@@ -55,13 +55,16 @@
                         {
                             <li><i class="fas fa-hotel"></i> <a href="@item.HotelLink">@item.HotelName</a></li>
                         }
+                        <li><a href="@item.DocLink"><i class="fas fa-file-download"></i> Скачать</a></li>
                     </ul>
                     <img class="ex-img-responsive" src="/images/ex/@item.ImageURL" />
                     <h3>Описание</h3>
                     <div id="description">@item.Description</div>
                     <hr>
                     <h3>В стоимость входит</h3>
-                    <div id="thePriceInclude">@item.ThePriceInclude</div>
+                    <div id="thePriceInclude">
+                        <i class="fas fa-check"></i> @item.ThePriceInclude
+                    </div>
                     <hr>
                     <p class="common-text">
                         Компания организатор оставляет за собой право вносить некоторые изменения в программу тура без уменьшения общего объема и качества услуг, в том числе предоставлять замену отеля на равнозначный. Компания организатор не несет ответственности за задержки, возникшие в результате   пробок на дорогах, в случае тяжелой дорожной ситуации возможны поздние приезды в отели, объекты экскурсий. В случае особых непредвиденных ситуаций возможны изменения в порядке проведения экскурсий, объем программы при этом не меняется.

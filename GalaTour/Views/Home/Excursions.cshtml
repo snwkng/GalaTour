@@ -81,14 +81,17 @@
                     <div class="ex-card__content">
                         <h3>@item.Name</h3>
                         <span class="ex-card__content-price">
-                            @item.Price &#8381
+                            от @item.Price &#8381
                         </span>
                         <p class="ex-card__content-text">
                             <span>Город: </span> @item.City
                         </p>
-                        <p class="ex-card__content-text">
-                            <span>Проживание: </span> отель
-                        </p>
+                        @if (item.HotelName != "")
+                        {
+                            <p class="ex-card__content-text">
+                                <span>Проживание: </span> @item.HotelName
+                            </p>
+                        }
                         <p class="ex-card__content-text">
                             <span>Длительность: </span> @item.Duration
                         </p>
