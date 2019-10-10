@@ -24,12 +24,28 @@ namespace GalaTour.Controllers
         [HttpPost]
         public IActionResult GetFile(string FileName)
         {
-            if (FileName != null)
+            string file_type = "";
+            if (FileName != null || FileName != "")
             {
                 // Путь к файлу
                 string file_path = Path.Combine(_appEnvironment.ContentRootPath, "wwwroot/docs/ex/" + FileName);
                 // Тип файла - content-type
-                string file_type = "application/docx";
+                if (FileName.Contains(".pdf"))
+                {
+                    file_type = "application/pdf";
+                }
+                if (FileName.Contains(".docx"))
+                {
+                    file_type = "application/docx";
+                }
+                if (FileName.Contains(".doc"))
+                {
+                    file_type = "application/doc";
+                }
+                if (FileName.Contains(".rtf"))
+                {
+                    file_type = "application/rtf";
+                }
                 // Имя файла - необязательно
                 string file_name = FileName;
                 return PhysicalFile(file_path, file_type, file_name);
