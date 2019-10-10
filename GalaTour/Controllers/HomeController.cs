@@ -6,16 +6,35 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GalaTour.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace GalaTour.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ExcursionContext db;
+        private readonly IHostingEnvironment _appEnvironment;
         readonly DateTime date = DateTime.Today;
-        public HomeController(ExcursionContext context)
+        public HomeController(ExcursionContext context, IHostingEnvironment appEnvironment)
         {
             db = context;
+            _appEnvironment = appEnvironment;
+        }
+        [HttpPost]
+        public IActionResult GetFile(string FileName)
+        {
+            if (FileName != null)
+            {
+                // Путь к файлу
+                string file_path = Path.Combine(_appEnvironment.ContentRootPath, "wwwroot/docs/ex/" + FileName);
+                // Тип файла - content-type
+                string file_type = "application/docx";
+                // Имя файла - необязательно
+                string file_name = FileName;
+                return PhysicalFile(file_path, file_type, file_name);
+            }
+            return RedirectToAction("Excursions");
         }
         public IActionResult Index()
         {

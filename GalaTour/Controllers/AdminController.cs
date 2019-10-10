@@ -10,6 +10,10 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using GalaTour.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace GalaTour.Controllers
 {
@@ -17,13 +21,70 @@ namespace GalaTour.Controllers
     public class AdminController : Controller
     {
         private readonly ExcursionContext _context;
+        private readonly IHostingEnvironment _appEnvironment;
 
-        private readonly string login = "galatour57@bus-orel.ru";
-        private readonly string password = "galatour57";
-        public AdminController(ExcursionContext context)
+        public AdminController(ExcursionContext context, IHostingEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
+        /**** Логика добавления файлов ****/
+        
+        // GET: Admin/AddImage
+        public IActionResult AddImage()
+        {
+            return View();
+        }
+
+        // Post: Admin/AddImage
+        [HttpPost]
+        public async Task<IActionResult> AddImage(IFormFile uploadedFile)
+        {
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/images/ex/" + uploadedFile.FileName;
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Admin");
+        }
+
+        // GET: Admin/AddPrice
+        public IActionResult AddPrice()
+        {
+            return View();
+        }
+
+        // Post: Admin/AddImage
+        [HttpPost]
+        public async Task<IActionResult> AddPrice(IFormFile uploadedFile)
+        {
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/docs/ex/" + uploadedFile.FileName;
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Admin");
+        }
+
+        /**** Конец ****/
         /**** Логика входа в админку *****/
         [AllowAnonymous]
         [HttpGet]
@@ -34,19 +95,20 @@ namespace GalaTour.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string Email, string Password)
+        public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                if (login == Email && password == Password)
+                User user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                if (user != null)
                 {
-                    await Authenticate(Email); // аутентификация
+                    await Authenticate(model.Email); // аутентификация
 
                     return RedirectToAction("Index", "Admin");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
-            return View();
+            return View(model);
         }
         private async Task Authenticate(string userName)
         {
@@ -61,6 +123,11 @@ namespace GalaTour.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Admin");
+        }
         /**** Конец ****/
         // GET: Admin
         public async Task<IActionResult> Index()

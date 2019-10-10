@@ -4,14 +4,16 @@ using GalaTour.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GalaTour.Migrations
 {
     [DbContext(typeof(ExcursionContext))]
-    partial class ExcursionContextModelSnapshot : ModelSnapshot
+    [Migration("20191010114318_User")]
+    partial class User
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,21 +52,6 @@ namespace GalaTour.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Excursions");
-                });
-
-            modelBuilder.Entity("GalaTour.Models.FileModel", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Path");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("GalaTour.Models.User", b =>

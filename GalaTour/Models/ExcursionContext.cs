@@ -9,6 +9,9 @@ namespace GalaTour.Models
     public class ExcursionContext : DbContext
     {
         public DbSet<Excursion> Excursions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<FileModel> Files { get; set; }
+
        public ExcursionContext(DbContextOptions<ExcursionContext> options)
             : base(options)
         {

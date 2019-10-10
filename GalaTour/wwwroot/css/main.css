@@ -699,6 +699,18 @@
 .ex-features > li > i {
     color: #ff5722;
 }
+.ex-features li button{
+    border: none;
+    background: transparent;
+    color: #007bff;
+}
+.ex-features li button span:hover {
+    text-decoration:underline;
+    cursor: pointer;
+}
+.ex-features li button i {
+    color: #ff5722;
+}
 .ex-img-responsive {
     width: 100%;
     height: auto;

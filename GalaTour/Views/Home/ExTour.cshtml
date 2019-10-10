@@ -55,7 +55,12 @@
                         {
                             <li><i class="fas fa-hotel"></i> <a href="@item.HotelLink">@item.HotelName</a></li>
                         }
-                        <li><a href="@item.DocLink"><i class="fas fa-file-download"></i> Скачать</a></li>
+                    <li>
+                        <form method="post" asp-controller="Home" asp-action="GetFile">
+                            <input name="FileName" value="@item.DocLink" style="display: none;">
+                            <button type="submit"><i class="fas fa-file-download"></i> <span>Скачать</span></button>
+                        </form>
+                     </li>
                     </ul>
                     <img class="ex-img-responsive" src="/images/ex/@item.ImageURL" />
                     <h3>Описание</h3>

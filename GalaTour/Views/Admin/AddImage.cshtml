@@ -1,0 +1,11 @@
+﻿@model IEnumerable<GalaTour.Models.FileModel>
+@{
+    ViewBag.Title = "Добавить изображение";
+}
+<h3>Выберите файл для загрузки</h3>
+<form asp-action="AddImage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile"><br>
+    <input type="submit" class="btn btn-primary" value="Загрузить">
+</form>
+
+<a asp-action="Index">Назад</a>
