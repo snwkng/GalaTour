@@ -76,6 +76,8 @@ namespace GalaTour
                 routes.MapRoute("contacts", "contacts", new { controller = "Home", action = "Contacts" });
                 routes.MapRoute("about", "about", new { controller = "Home", action = "About" });
                 routes.MapRoute("tourist", "tourist", new { controller = "Home", action = "Tourist" });
+                routes.MapRoute("privacy-policy", "privacy-policy", new { controller = "Home", action = "PrivacyPolicy" });
+                routes.MapRoute("agreement", "agreement", new { controller = "Home", action = "Agreement" });
 
 
                 routes.MapRoute(

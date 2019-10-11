@@ -121,6 +121,14 @@ namespace GalaTour.Controllers
         {
             return View();
         }
+        public IActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+        public IActionResult Agreement()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
