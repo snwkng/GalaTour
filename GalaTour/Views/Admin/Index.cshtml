@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-    <div class="container-fluid">
-        <h2>Экскурсионные туры</h2>
+    <div class="container-fluid" style="margin-top:24px; margin-bottom: 16px;">
+        <h2 style="margin-bottom: 24px;">Экскурсионные туры</h2>
 
-        <p>
-            <a asp-action="Create">Добавить экскурсию</a>
-            <a asp-action="AddImage">Добавить изображение</a>
-            <a asp-action="AddPrice">Добавить Прайс</a>
+        <p style="margin-bottom: 24px;">
+            <a class="btn btn-outline-danger" asp-action="Create">Добавить экскурсию</a>
+            <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
+            <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
         </p>
         <div class="table-responsive">
             <table class="table table-striped">
