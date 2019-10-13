@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="nofollow">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="Author" content="GalaTour Orel">
@@ -19,35 +21,6 @@
     </environment>
 </head>
 <body>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter30308022 = new Ya.Metrika({
-                        id: 30308022,
-                        clickmap: true,
-                        trackLinks: true,
-                        accurateTrackBounce: true,
-                        webvisor: true
-                    });
-                } catch (e) { }
-            });
-
-            var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-        })(document, window, "yandex_metrika_callbacks");
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/30308022" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
     <main>
         @RenderBody()
     </main>
@@ -93,7 +66,8 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; 2019. Информация на сайте носит ознакомительный характер и не является публичной офертой.
+                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; 2019. All rights
+                    reserved. Информация на сайте носит ознакомительный характер и не является публичной офертой.
                 </div>
             </div>
         </div>
@@ -114,23 +88,6 @@
         </script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         <script src="https://kit.fontawesome.com/e884a7030d.js"></script>
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-58848810-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-        <script src="//vk.com/js/api/openapi.js?139"></script>
-        <!-- VK Widget -->
-        <div id="vk_community_messages" class="vk_community"></div>
-        <script>
-            VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
-        </script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/site.js" asp-append-version="true"></script>
@@ -139,3 +96,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+

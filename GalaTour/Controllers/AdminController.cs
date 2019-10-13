@@ -21,8 +21,10 @@ namespace GalaTour.Controllers
     public class AdminController : Controller
     {
         private readonly ExcursionContext _context;
+        [Obsolete]
         private readonly IHostingEnvironment _appEnvironment;
 
+        [Obsolete]
         public AdminController(ExcursionContext context, IHostingEnvironment appEnvironment)
         {
             _context = context;
@@ -38,6 +40,7 @@ namespace GalaTour.Controllers
 
         // Post: Admin/AddImage
         [HttpPost]
+        [Obsolete]
         public async Task<IActionResult> AddImage(IFormFile uploadedFile)
         {
             if (uploadedFile != null)
@@ -65,6 +68,7 @@ namespace GalaTour.Controllers
 
         // Post: Admin/AddImage
         [HttpPost]
+        [Obsolete]
         public async Task<IActionResult> AddPrice(IFormFile uploadedFile)
         {
             if (uploadedFile != null)

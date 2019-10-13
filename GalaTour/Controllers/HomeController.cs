@@ -14,14 +14,18 @@ namespace GalaTour.Controllers
     public class HomeController : Controller
     {
         private readonly ExcursionContext db;
+        [Obsolete]
         private readonly IHostingEnvironment _appEnvironment;
         readonly DateTime date = DateTime.Today;
+
+        [Obsolete]
         public HomeController(ExcursionContext context, IHostingEnvironment appEnvironment)
         {
             db = context;
             _appEnvironment = appEnvironment;
         }
         [HttpPost]
+        [Obsolete]
         public IActionResult GetFile(string FileName)
         {
             string file_type = "";
