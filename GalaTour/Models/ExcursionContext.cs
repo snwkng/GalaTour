@@ -15,7 +15,7 @@ namespace GalaTour.Models
        public ExcursionContext(DbContextOptions<ExcursionContext> options)
             : base(options)
         {
-            Database.Migrate();
+            Database.EnsureCreated();
         } 
     }
 }
