@@ -18,4 +18,9 @@
     <Folder Include="wwwroot\docs\ex\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\googlec5787864c21d85a9.html" />
+    <None Include="wwwroot\yandex_580bdd84c70ca5a3.html" />
+  </ItemGroup>
+
 </Project>

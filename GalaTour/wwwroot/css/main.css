@@ -242,7 +242,23 @@
     text-indent: 25px;
     background-color: #ff5722;
 }
-
+@media(max-width: 767px)
+{
+    .btn-bus-tours {
+        margin-right: 4px;
+    }
+    .btn-excursions {
+        margin-left: 4px;
+    }
+    .btn-bus-rent {
+        margin-top: 8px;
+        margin-left: 0px;
+        padding: 0 54px;
+    }
+    .intro-lead-in {
+        padding-top: 24px;
+    }
+}
 /* Section header end */
 
 /* Section pop-bus-tours */
@@ -868,7 +884,6 @@
     margin: 10px;
     border-radius: 50%;
     padding: 10px;
-    cursor: pointer;
     width: 50px;
     height: 50px;
     background-color: #004a43;
@@ -974,4 +989,14 @@
 }
 .agreement p {
     text-align: justify;
+}
+@media(max-width: 768px)
+{
+    .agreement h1 {
+        line-height: 1.1;
+        margin: 0.67em 0;
+        color: #484848;
+        font-size: 2em;
+        font-weight: normal;
+    }
 }
