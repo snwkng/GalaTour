@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\googlec5787864c21d85a9.html" />
+    <None Include="wwwroot\wmail_1e2f7c48cca630877a378e13dee45b29.html" />
     <None Include="wwwroot\yandex_580bdd84c70ca5a3.html" />
   </ItemGroup>
 
