@@ -133,10 +133,36 @@ namespace GalaTour.Controllers
             return RedirectToAction("Login", "Admin");
         }
         /**** Конец ****/
+        /******** Добавить город *******/
+
+        // GET: AddCity
+        public IActionResult AddCity()
+        {
+            var eCity = _context.ExCities.ToList();
+            ViewBag.eCity = eCity;
+            return View();
+        }
+
+        // POST: AddCity
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddCity([Bind("ID,City")] ExCity exCity)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(exCity);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(exCity);
+        }
+
+        /******** Конец ****************/
         // GET: Admin
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Excursions.ToListAsync());
+            var excursionContext = _context.Excursions.Include(e => e.ExCity);
+            return View(await excursionContext.ToListAsync());
         }
 
         // GET: Admin/Details/5
@@ -148,6 +174,7 @@ namespace GalaTour.Controllers
             }
 
             var excursion = await _context.Excursions
+                .Include(e => e.ExCity)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (excursion == null)
             {
@@ -160,6 +187,7 @@ namespace GalaTour.Controllers
         // GET: Admin/Create
         public IActionResult Create()
         {
+            ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "City");
             return View();
         }
 
@@ -168,7 +196,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,ThePriceInclude,ImageURL,Duration,City,Date,Price,HotelName,HotelLink,DocLink")] Excursion excursion)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,ThePriceInclude,ImageURL,Duration,ExCityID,Date,Price,HotelName,HotelLink,DocLink")] Excursion excursion)
         {
             if (ModelState.IsValid)
             {
@@ -176,6 +204,7 @@ namespace GalaTour.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "ID", excursion.ExCityID);
             return View(excursion);
         }
 
@@ -192,6 +221,7 @@ namespace GalaTour.Controllers
             {
                 return NotFound();
             }
+            ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "ID", excursion.ExCityID);
             return View(excursion);
         }
 
@@ -200,7 +230,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,ThePriceInclude,ImageURL,Duration,City,Date,Price,HotelName,HotelLink,DocLink")] Excursion excursion)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,ThePriceInclude,ImageURL,Duration,ExCityID,Date,Price,HotelName,HotelLink,DocLink")] Excursion excursion)
         {
             if (id != excursion.ID)
             {
@@ -225,6 +255,7 @@ namespace GalaTour.Controllers
                         throw;
                     }
                 }
+                ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "ID", excursion.ExCityID);
                 return RedirectToAction(nameof(Index));
             }
             return View(excursion);
@@ -239,6 +270,7 @@ namespace GalaTour.Controllers
             }
 
             var excursion = await _context.Excursions
+                .Include(e => e.ExCity)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (excursion == null)
             {

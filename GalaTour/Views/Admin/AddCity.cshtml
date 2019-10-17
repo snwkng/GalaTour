@@ -1,0 +1,37 @@
+﻿@model GalaTour.Models.ExCity
+
+@{
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+    ViewData["Title"] = "Добавить Город";
+}
+    <div class="container" style="margin-top:32px; margin-bottom:32px;">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h4>Добавить город</h4>
+                <hr />
+                <form asp-action="AddCity">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h4>Добавленные города</h4>
+                <hr />
+                @foreach (var item in ViewBag.eCity)
+                {
+                    <p>@item.City</p>
+                }
+            </div>
+        </div>
+     
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>

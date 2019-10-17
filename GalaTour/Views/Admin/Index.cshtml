@@ -13,6 +13,7 @@
             <a class="btn btn-outline-danger" asp-action="Create">Добавить экскурсию</a>
             <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
             <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
+            <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
         </p>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -34,7 +35,7 @@
                             @Html.DisplayNameFor(model => model.Duration)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.City)
+                            @Html.DisplayNameFor(model => model.ExCity.City)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Date)
@@ -74,7 +75,7 @@
                                 @Html.DisplayFor(modelItem => item.Duration)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.City)
+                                @Html.DisplayFor(modelItem => item.ExCity.City)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Date)

@@ -15,12 +15,15 @@ namespace GalaTour.Models
         public string ThePriceInclude { get; set; }
         public string ImageURL { get; set; }
         public string Duration { get; set; }
-        public string City { get; set; }
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public int Price { get; set; }
         public string HotelName { get; set; }
         public string HotelLink { get; set; }
         public string DocLink { get; set; }
+
+        public int ExCityID { get; set; }
+        
+        public virtual ExCity ExCity { get; set; }
     }
 }

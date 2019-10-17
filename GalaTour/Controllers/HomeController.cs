@@ -59,49 +59,56 @@ namespace GalaTour.Controllers
         public IActionResult Index()
         {
             var ex = db.Excursions
+                .Include(c => c.ExCity)
                 .Where(c => c.Date > date); // Вывод только предстоящих экскурсий
-            ViewBag.eCity = ex.ToList();
+            var eCity = db.ExCities.ToList();
+            ViewBag.eCity = eCity;
             return View(ex.ToList());
         }
         public IActionResult Excursions()
         {
             ViewBag.SearchCount = db.Excursions
                     .Include(c => c.ID)
+                    .Include(c => c.ExCity)
                     .Where(c => c.Date > date).Count();
-            ViewBag.eCity = db.Excursions
-                   
-                   .Where(c => c.Date > date).ToList();
+            var eCity = db.ExCities.ToList();
+            ViewBag.eCity = eCity;
             var ex = db.Excursions
+                .Include(c => c.ExCity)
                 .Where(c => c.Date > date); // Вывод только предстоящих экскурсий
             return View(ex.ToList());
         }
         [HttpGet]
         public IActionResult Excursions(int id)
         {
-            ViewBag.eCity = db.Excursions
-                   
-                   .Where(c => c.Date > date).ToList();
+            var eCity = db.ExCities.ToList();
+            ViewBag.eCity = eCity;
             if (id == 0)
             {
                 ViewBag.SearchCount = db.Excursions
                     .Include(c => c.ID)
+                    .Include(c => c.ExCity)
                     .Where(c => c.Date > date).Count();
                 var e = db.Excursions
+                    .Include(c => c.ExCity)
                     .Where(c => c.Date > date); // Вывод только предстоящих экскурсий
                 return View(e.ToList());
             }
             ViewBag.SearchCount = db.Excursions
                     .Include(c => c.ID)
-                    .Where(c => c.ID == id)
+                    .Include(c => c.ExCity)
+                    .Where(c => c.ExCity.ID == id)
                     .Where(c => c.Date > date).Count();
             var ex = db.Excursions
-                .Where(c => c.ID == id)
+                .Include(c => c.ExCity)
+                .Where(c => c.ExCity.ID == id)
                 .Where(c => c.Date > date);
             return View(ex.ToList());
         }
         public IActionResult ExTour(int id)
         {
             var ex = db.Excursions
+                .Include(c => c.ExCity)
                 .Where(c => c.ID == id).ToList();
             return View(ex);
         }

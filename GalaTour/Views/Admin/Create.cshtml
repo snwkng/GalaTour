@@ -38,9 +38,8 @@
                         <span asp-validation-for="Duration" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="City" class="control-label">Город</label>
-                        <input asp-for="City" class="form-control" />
-                        <span asp-validation-for="City" class="text-danger"></span>
+                        <label asp-for="ExCityID" class="control-label">Выберите город</label>
+                        <select asp-for="ExCityID" class="form-control" asp-items="ViewBag.CityID"></select>
                     </div>
                     <div class="form-group">
                         <label asp-for="Date" class="control-label">Дата отправления</label>
@@ -68,7 +67,7 @@
                         <span asp-validation-for="DocLink" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Добавить" class="btn btn-primary" />
+                        <input type="submit" value="Добавить" class="btn btn-danger" />
                     </div>
                 </form>
             </div>

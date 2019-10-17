@@ -2,8 +2,8 @@
 @{
     foreach (var item in Model)
     {
-    ViewBag.Description = "Экскурсионный тур - " + item.Name + "! В город " + item.City;
-    ViewBag.Keywords = "Экскурсия в " + item.City + ", Экскурсионный тур в " + item.City + ", " + item.Name;
+    ViewBag.Description = "Экскурсионный тур - " + item.Name + "! В город " + item.ExCity.City;
+    ViewBag.Keywords = "Экскурсия в " + item.ExCity.City + ", Экскурсионный тур в " + item.ExCity.City + ", " + item.Name;
         ViewBag.Title = item.Name;
     }
 }
@@ -47,7 +47,7 @@
                 {
                     <h1>@item.Name</h1>
                     <ul class="ex-features">
-                        <li><i class="fas fa-map-marker-alt"></i> @item.City</li>
+                        <li><i class="fas fa-map-marker-alt"></i> @item.ExCity.City</li>
                         <li><i class="far fa-clock"></i> @item.Duration</li>
                         <li><i class="far fa-calendar-alt"></i> @item.Date.ToString("dd.MM.yyyy")</li>
                         <li><i class="fas fa-ruble-sign"></i> от @item.Price&#8381;</li>
