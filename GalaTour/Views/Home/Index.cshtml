@@ -52,37 +52,37 @@
                 </a>
             </div>
             <!-- Неактульно пока нет автобусных туров к морю.
-    <form id="bus-tours__form" class="justify-content-center align-items-center" method="get">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label class="header__form-label">Откуда</label>
-                <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputBusTour__where" class="header__form-label">Куда</label>
-                <select id="inputBusTour__where" class="form-control form__select">
-                    <option selected disabled>Куда</option>
-                    <option>Кабардинка</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputBusTour__date" class="header__form-label">Даты</label>
-                <select id="inputBusTour__date" class="form-control form__select">
-                    <option selected disabled>Выберите даты поездки</option>
-                    <option>20.07.19 - 27.07.19</option>
-                </select>
-            </div>
-            <div class="form-group col-md-12">
-                <button type="submit" class="btn btn-search">
-                    Найти
-                    <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
-                        margin-bottom: 1px;">
-                        arrow_forward
-                    </i>
-                </button>
-            </div>
-        </div>
-    </form> -->
+            <form id="bus-tours__form" class="justify-content-center align-items-center" method="get">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="header__form-label">Откуда</label>
+                        <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputBusTour__where" class="header__form-label">Куда</label>
+                        <select id="inputBusTour__where" class="form-control form__select">
+                            <option selected disabled>Куда</option>
+                            <option>Кабардинка</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputBusTour__date" class="header__form-label">Даты</label>
+                        <select id="inputBusTour__date" class="form-control form__select">
+                            <option selected disabled>Выберите даты поездки</option>
+                            <option>20.07.19 - 27.07.19</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-search">
+                            Найти
+                            <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
+                                margin-bottom: 1px;">
+                                arrow_forward
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </form> -->
             <form id="excursions__form" class="justify-content-center align-items-center" asp-action="excursions" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -158,18 +158,18 @@
         <div class="row justify-content-center">
             @foreach (var item in Model.Take(4))
             {
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
-                    <div class="card pop-excursions__card">
-                        <div class="pop-excursions__card-image" style="background-image: url('/images/ex/@item.ImageURL');"></div>
-                        <div class="pop-excursions__card-body">
-                            <h4>@item.Name</h4>
-                            <p>@item.Duration <span>от @item.Price &#8381;</span></p>
-                            <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
+                <div class="col-margin-bottom col-md-3 col-sm-6">
+                    <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
+                        <div class="card pop-excursions__card">
+                            <div class="pop-excursions__card-image" style="background-image: url('/images/ex/@item.ImageURL');"></div>
+                            <div class="pop-excursions__card-body">
+                                <h4>@item.Name</h4>
+                                <p>@item.Duration <span>от @item.Price &#8381;</span></p>
+                                <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             }
         </div>
         <a class="pop-excursions__link" asp-controller="Home" asp-action="Excursions">
