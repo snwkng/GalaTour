@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GalaTour.Models.Excursion>
+@model IEnumerable<GalaTour.Models.Excursion>
 @{
      foreach (var item in Model)
     {
@@ -57,7 +57,7 @@
                             <option value="0" selected>Все направления</option>
                             @foreach (var item in ViewBag.eCity)
                             {
-                                <option value="@item.ID">@item.City</option>
+                                <option value="@item.ID">@Html.Raw(item.City)</option>
                             }
                         </select>
                     </div>
@@ -84,21 +84,21 @@
                 <div class="col-md-12 ex-card">
                     <div class="ex-card__image rounded" style="background-image: url('/images/ex/@item.ImageURL');"></div>
                     <div class="ex-card__content">
-                        <h3>@item.Name</h3>
+                        <h3>@Html.Raw(item.Name)</h3>
                         <span class="ex-card__content-price">
                             от @item.Price &#8381
                         </span>
                         <p class="ex-card__content-text">
-                            <span>Город: </span> @item.ExCity.City
+                            <span>Город: </span> @Html.Raw(item.ExCity.City)
                         </p>
                         @if (item.HotelName != "")
                         {
                             <p class="ex-card__content-text">
-                                <span>Проживание: </span> @item.HotelName
+                                <span>Проживание: </span> @Html.Raw(item.HotelName)
                             </p>
                         }
                         <p class="ex-card__content-text">
-                            <span>Длительность: </span> @item.Duration
+                            <span>Длительность: </span> @Html.Raw(item.Duration)
                         </p>
                         <p class="ex-card__content-text">
                             <span>Отправление: </span> @item.Date.ToString("dd.MM.yyyy")

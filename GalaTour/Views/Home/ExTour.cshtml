@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GalaTour.Models.Excursion>
+@model IEnumerable<GalaTour.Models.Excursion>
 @{
     foreach (var item in Model)
     {
@@ -47,8 +47,8 @@
                 {
                     <h1>@item.Name</h1>
                     <ul class="ex-features">
-                        <li><i class="fas fa-map-marker-alt"></i> @item.ExCity.City</li>
-                        <li><i class="far fa-clock"></i> @item.Duration</li>
+                        <li><i class="fas fa-map-marker-alt"></i> @Html.Raw(item.ExCity.City)</li>
+                        <li><i class="far fa-clock"></i> @Html.Raw(item.Duration)</li>
                         <li><i class="far fa-calendar-alt"></i> @item.Date.ToString("dd.MM.yyyy")</li>
                         <li><i class="fas fa-ruble-sign"></i> от @item.Price&#8381;</li>
                         @if (item.HotelName != "")
@@ -64,11 +64,11 @@
                     </ul>
                     <img class="ex-img-responsive" src="/images/ex/@item.ImageURL" />
                     <h3>Описание</h3>
-                    <div id="description">@item.Description</div>
+                    <div class="description" id="description">@Html.Raw(item.Description)</div>
                     <hr>
                     <h3>В стоимость входит</h3>
                     <div id="thePriceInclude">
-                        <i class="fas fa-check"></i> @item.ThePriceInclude
+                        <i class="fas fa-check"></i> @Html.Raw(item.ThePriceInclude)
                     </div>
                     <hr>
                     <p class="common-text">

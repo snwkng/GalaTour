@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GalaTour.Models.Excursion>
+@model IEnumerable<GalaTour.Models.Excursion>
 @{
     ViewBag.Description = "Туристическое агентство ГалаТур Орел предлагает вам: Автобусные туры к морю, Экскурсионные туры, Аренда автобусов и микроавтобусов, а также турпоездки зарубеж";
     ViewBag.Keywords = "ГалаТур, Галатур Орёл, Туристическое агентство, туристическое агентство в Орле, автобусом к морю, автобусные туры, аренда автобуса, заказ автобуса, аренда микроавтобуса, заказ микроавтобуса, экскурсии орел, пассажирские перевозки, экскурсионные туры, аренда автобуса в Орле, заказ автобуса в Орле, заказ микроавтобуса в Орле, аренда микроавтобуса в Орле, аренда автобуса с водителем";
@@ -95,7 +95,7 @@
                             <option value="0" selected>Все направления</option>
                             @foreach (var item in ViewBag.eCity)
                             {
-                                <option value="@item.ID">@item.City</option>
+                                <option value="@item.ID">@Html.Raw(item.City)</option>
                             }
                         </select>
                     </div>
@@ -163,8 +163,8 @@
                         <div class="card pop-excursions__card">
                             <div class="pop-excursions__card-image" style="background-image: url('/images/ex/@item.ImageURL');"></div>
                             <div class="pop-excursions__card-body">
-                                <h4>@item.Name</h4>
-                                <p>@item.Duration <span>от @item.Price &#8381;</span></p>
+                                <h4>@Html.Raw(item.Name)</h4>
+                                <p>@Html.Raw(item.Duration) <span>от @item.Price &#8381;</span></p>
                                 <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
                             </div>
                         </div>
