@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\docs\ex\" />
+    <Content Include="404.html" />
   </ItemGroup>
 
   <ItemGroup>
