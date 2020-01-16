@@ -38,11 +38,11 @@
     <header class="section-header d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="intro-text">
-                <h1 id="header__text" class="intro-lead-in" style="color: #fff;">Поиск Экскурсионных туров из Орла</h1>
+                <h1 id="header__text" class="intro-lead-in" style="color: #fff;">Поиск автобусных туров к морю из Орла</h1>
             </div>
             <div class="header-nav">
                 <!-- 1st button id="bus-tours__button" -->
-                <button type="button" class="btn btn-bus-tours" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="Автобусных туров к морю пока нет">Туры к морю</button>
+                <button id="bus-tours__button" type="button" class="btn btn-bus-tours">Туры к морю</button>
                 <button id="excursions__button" type="button" class="btn btn-excursions">Экскурсии</button>
                 <a class="btn btn-bus-rent" id="click">
                     Аренда автобусов
@@ -51,7 +51,6 @@
                     </i>
                 </a>
             </div>
-            <!-- Неактульно пока нет автобусных туров к морю.
             <form id="bus-tours__form" class="justify-content-center align-items-center" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -82,7 +81,7 @@
                         </button>
                     </div>
                 </div>
-            </form> -->
+            </form>
             <form id="excursions__form" class="justify-content-center align-items-center" asp-action="excursions" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -113,7 +112,8 @@
         </div>
     </header>
 </section>
-<!--<section class="section-default pop-bus-tours">
+<!-- ПОПУЛЯРНЫЕ АВТОБУСНЫЕ ТУРЫ -->
+<section class="section-default pop-bus-tours">
     <div class="container">
         <h3>Популярные направления</h3>
         <div class="row justify-content-center">
@@ -151,7 +151,7 @@
                                style="vertical-align: middle;">keyboard_arrow_right</i>
         </a>
     </div>
-</section> -->
+</section> 
 <section class="section-default pop-excursions">
     <div class="container">
         <h3>Экскурсионные туры из Орла</h3>

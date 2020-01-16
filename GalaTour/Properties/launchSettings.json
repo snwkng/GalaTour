@@ -1,9 +1,13 @@
-п»ї{
+{
   "iisSettings": {
-    "windowsAuthentication": false, 
-    "anonymousAuthentication": true, 
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/GalaTour",
+      "sslPort": 0
+    },
     "iisExpress": {
-      "applicationUrl": "http://localhost:4323",
+      "applicationUrl": "https://localhost:44376/", // Если шо поставить эту строку - "applicationUrl": "http://localhost:5467/",
       "sslPort": 44376
     }
   },
@@ -18,10 +22,10 @@
     "GalaTour": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:44376/"
     }
   }
 }

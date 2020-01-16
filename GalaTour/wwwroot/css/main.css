@@ -123,10 +123,9 @@
 .section-header .container .header-nav {
     margin-bottom: 24px;
 }
-/* Заменить на block, когда появятся туры к морю*/
 #bus-tours__form
 {
-    display: none;
+    display: block;
 }
 /************************************************/
 .btn-bus-tours {
@@ -150,7 +149,7 @@
 }
 
 #excursions__form {
-    display: block;
+    display: none;
 }
 .btn-excursions {
     color: #fff;
