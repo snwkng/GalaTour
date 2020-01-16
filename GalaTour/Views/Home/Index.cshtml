@@ -51,24 +51,17 @@
                     </i>
                 </a>
             </div>
-            <form id="bus-tours__form" class="justify-content-center align-items-center" method="get">
+            <form id="bus-tours__form" class="justify-content-center align-items-center" asp-action="bus-tours" method="get">
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label class="header__form-label">Откуда</label>
                         <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="inputBusTour__where" class="header__form-label">Куда</label>
                         <select id="inputBusTour__where" class="form-control form__select">
                             <option selected disabled>Куда</option>
                             <option>Кабардинка</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputBusTour__date" class="header__form-label">Даты</label>
-                        <select id="inputBusTour__date" class="form-control form__select">
-                            <option selected disabled>Выберите даты поездки</option>
-                            <option>20.07.19 - 27.07.19</option>
                         </select>
                     </div>
                     <div class="form-group col-md-12">

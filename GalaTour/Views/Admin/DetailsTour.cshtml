@@ -1,0 +1,81 @@
+@model GalaTour.Models.BusTour
+@{
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+    ViewData["Title"] = "Детали Тура";
+}
+<div>
+    <h4>BusTour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionImage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegionImage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotelType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotelName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AddInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DocLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotelLink)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="BusTourList">Back to List</a>
+</div>

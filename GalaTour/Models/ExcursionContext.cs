@@ -13,6 +13,7 @@ namespace GalaTour.Models
         public DbSet<User> Users { get; set; }
         public DbSet<FileModel> Files { get; set; }
 
+        public DbSet<BusTour> BusTours { get; set; }
        public ExcursionContext(DbContextOptions<ExcursionContext> options)
             : base(options)
         {

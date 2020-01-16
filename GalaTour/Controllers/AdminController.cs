@@ -17,7 +17,7 @@ using System.IO;
 
 namespace GalaTour.Controllers
 {
-    [Authorize]
+    //[Authorize] авторизация?
     public class AdminController : Controller
     {
         private readonly ExcursionContext _context;
@@ -295,5 +295,140 @@ namespace GalaTour.Controllers
         {
             return _context.Excursions.Any(e => e.ID == id);
         }
+
+
+
+
+        /** АВТОБУСНЫЕ ТУРЫ К МОРЮ **/
+        public async Task<IActionResult> BusTourList()
+        {
+            var excursionContext = _context.BusTours;
+            return View(await excursionContext.ToListAsync());
+        }
+        // GET: Admin/Details/5
+        public async Task<IActionResult> DetailsTour(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var busTour = await _context.BusTours
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (busTour == null)
+            {
+                return NotFound();
+            }
+
+            return View(busTour);
+        }
+
+        // GET: Admin/Create
+        public IActionResult CreateTour()
+        {
+            return View();
+        }
+
+        // POST: Admin/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateTour([Bind("ID,Region,RegionImage,City,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelLink")] BusTour busTour)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(busTour);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(busTour);
+        }
+
+        // GET: Admin/Edit/5
+        public async Task<IActionResult> EditTour(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var busTour = await _context.BusTours.FindAsync(id);
+            if (busTour == null)
+            {
+                return NotFound();
+            }
+            return View(busTour);
+        }
+
+        // POST: Admin/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditTour(int id, [Bind("ID,Region,RegionImage,City,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelLink")] BusTour busTour)
+        {
+            if (id != busTour.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(busTour);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BusTourExist(busTour.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(busTour);
+        }
+
+        // GET: Admin/Delete/5
+        public async Task<IActionResult> DeleteTour(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var busTour = await _context.BusTours
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (busTour == null)
+            {
+                return NotFound();
+            }
+
+            return View(busTour);
+        }
+
+        // POST: Admin/Delete/5
+        [HttpPost, ActionName("DeleteTour")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteTourConfirmed(int id)
+        {
+            var busTour = await _context.BusTours.FindAsync(id);
+            _context.BusTours.Remove(busTour);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool BusTourExist(int id)
+        {
+            return _context.BusTours.Any(e => e.ID == id);
+        }
+
     }
 }
