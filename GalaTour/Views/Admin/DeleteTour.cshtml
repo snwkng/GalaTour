@@ -1,8 +1,9 @@
 @model GalaTour.Models.BusTour
 @{
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
-    ViewData["Title"] = "Детали Тура";
+    ViewData["Title"] = "Удалить Тур";
 }
+<h3>Вы точно хотите удалить этот тур?</h3>
 <div>
     <h4>BusTour</h4>
     <hr />
@@ -74,8 +75,10 @@
             @Html.DisplayFor(model => model.HotelLink)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="BusTourList">Назад</a>
+
+    <form asp-action="DeleteTour">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Удалить Тур" class="btn btn-danger" /> |
+        <a asp-action="BusTourList">Назад</a>
+    </form>
 </div>

@@ -152,14 +152,14 @@ namespace GalaTour.Controllers
             {
                 _context.Add(exCity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ExcursionList));
             }
             return View(exCity);
         }
 
         /******** Конец ****************/
         // GET: Admin
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> ExcursionList()
         {
             var excursionContext = _context.Excursions.Include(e => e.ExCity);
             return View(await excursionContext.ToListAsync());
@@ -202,7 +202,7 @@ namespace GalaTour.Controllers
             {
                 _context.Add(excursion);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ExcursionList));
             }
             ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "ID", excursion.ExCityID);
             return View(excursion);
@@ -256,7 +256,7 @@ namespace GalaTour.Controllers
                     }
                 }
                 ViewData["CityID"] = new SelectList(_context.ExCities, "ID", "ID", excursion.ExCityID);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ExcursionList));
             }
             return View(excursion);
         }
@@ -288,7 +288,7 @@ namespace GalaTour.Controllers
             var excursion = await _context.Excursions.FindAsync(id);
             _context.Excursions.Remove(excursion);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ExcursionList));
         }
 
         private bool ExcursionExists(int id)
@@ -340,7 +340,7 @@ namespace GalaTour.Controllers
             {
                 _context.Add(busTour);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BusTourList));
             }
             return View(busTour);
         }
@@ -391,7 +391,7 @@ namespace GalaTour.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BusTourList));
             }
             return View(busTour);
         }
@@ -422,12 +422,17 @@ namespace GalaTour.Controllers
             var busTour = await _context.BusTours.FindAsync(id);
             _context.BusTours.Remove(busTour);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(BusTourList));
         }
 
         private bool BusTourExist(int id)
         {
             return _context.BusTours.Any(e => e.ID == id);
+        }
+
+        public IActionResult Index()
+        {
+            return View();
         }
 
     }

@@ -1,4 +1,4 @@
-﻿@model GalaTour.Models.Excursion
+@model GalaTour.Models.Excursion
 
 @{
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
@@ -83,6 +83,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="ExcursionList">Back to List</a>
     </form>
 </div>

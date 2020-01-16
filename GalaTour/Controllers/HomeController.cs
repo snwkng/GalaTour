@@ -61,7 +61,10 @@ namespace GalaTour.Controllers
             var ex = db.Excursions
                 .Include(c => c.ExCity)
                 .Where(c => c.Date > date); // Вывод только предстоящих экскурсий
-            var eCity = db.ExCities.ToList();
+            //var eCity = db.ExCities.ToList();
+            var eCity = db.Excursions
+                .Include(c => c.ExCity)
+                .Select(c => c.ExCity);
             ViewBag.eCity = eCity;
             return View(ex.ToList());
         }
@@ -71,7 +74,9 @@ namespace GalaTour.Controllers
                     .Include(c => c.ID)
                     .Include(c => c.ExCity)
                     .Where(c => c.Date > date).Count();
-            var eCity = db.ExCities.ToList();
+            var eCity = db.Excursions
+                .Include(c => c.ExCity)
+                .Select(c => c.ExCity).ToList();
             ViewBag.eCity = eCity;
             var ex = db.Excursions
                 .Include(c => c.ExCity)
@@ -81,7 +86,9 @@ namespace GalaTour.Controllers
         [HttpGet]
         public IActionResult Excursions(int id)
         {
-            var eCity = db.ExCities.ToList();
+            var eCity = db.Excursions
+                .Include(c => c.ExCity)
+                .Select(c => c.ExCity).ToList();
             ViewBag.eCity = eCity;
             if (id == 0)
             {

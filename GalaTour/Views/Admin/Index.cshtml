@@ -1,105 +1,36 @@
-﻿@model IEnumerable<GalaTour.Models.Excursion>
-
 @{
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
-    ViewData["Title"] = "Index";
-
+    ViewData["Title"] = "Панель Администратора";
 }
 
-    <div class="container-fluid" style="margin-top:24px; margin-bottom: 16px;">
-        <h2 style="margin-bottom: 24px;">Экскурсионные туры</h2>
-
-        <p style="margin-bottom: 24px;">
-            <a class="btn btn-outline-danger" asp-action="Create">Добавить экскурсию</a>
-            <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
-            <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
-            <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
-        </p>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ThePriceInclude)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ImageURL)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Duration)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ExCity.City)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Date)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Price)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.HotelName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.HotelLink)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DocLink)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                <div style="max-height: 100px; overflow:hidden;">@Html.DisplayFor(modelItem => item.Description)</div>
-                            </td>
-                            <td>
-                                <div style="max-height: 100px; overflow:hidden;">@Html.DisplayFor(modelItem => item.ThePriceInclude)</div>
-</td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ImageURL)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Duration)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ExCity.City)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Date)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.HotelName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.HotelLink)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DocLink)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.ID">Редактировать</a> |
-                                <a asp-action="Details" asp-route-id="@item.ID">Детали</a> |
-                                <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+    <div class="container d-flex w-100 p-3 mx-auto flex-column justify-content-center" style="height: 100vh">
+        <div class=" row d-flex flex-row align-items-center">
+            <div class="col-margin-bottom col-md-6 col-sm-6">
+                <div class="card pop-bus-tours__card" style="background: rgba(0,0,0, .5)">
+                    <a asp-action="BusTourList">
+                        <div style="display: flex;align-items: center;justify-content: center;padding: 8px;text-align: center;color: #ffffff;font-size: 18px;font-weight: 800;height: 300px; text-decoration: none;">
+                            Автобусные туры к морю
+                        </div>
+                    </a>
+</div>
+            </div>
+            <div class="col-margin-bottom col-md-6 col-sm-6">
+                <div class="card pop-bus-tours__card" style="background: rgba(0,0,0, .5)">
+                    <a asp-action="ExcursionList">
+                        <div style="        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 800;
+        height: 300px;
+        text-decoration: none;">
+                            Экскурсионные туры
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
