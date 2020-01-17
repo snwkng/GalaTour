@@ -14,6 +14,8 @@ namespace GalaTour.Models
         public DbSet<FileModel> Files { get; set; }
 
         public DbSet<BusTour> BusTours { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<TourCity> TourCities { get; set; }
        public ExcursionContext(DbContextOptions<ExcursionContext> options)
             : base(options)
         {

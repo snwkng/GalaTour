@@ -81,6 +81,11 @@ namespace GalaTour
                 routes.MapRoute("privacy-policy", "privacy-policy", new { controller = "Home", action = "PrivacyPolicy" });
                 routes.MapRoute("agreement", "agreement", new { controller = "Home", action = "Agreement" });
 
+                routes.MapRoute(
+                    "bus-tours-region",
+                    "bus-tours/{regName}",
+                    new { controller = "Home", action = "Region" }
+                );
 
                 routes.MapRoute(
                     name: "default",

@@ -10,24 +10,26 @@
         <p style="margin-bottom: 24px;">
             <a class="btn btn-link" asp-action="Index">Назад</a>
             <a class="btn btn-outline-danger" asp-action="CreateTour">Добавить тур</a>
+            <a class="btn btn-outline-info" asp-action="AddRegion">Добавить регион</a>
+            <a class="btn btn-outline-primary" asp-action="AddTourCity">Добавить Город</a>
             <!-- Кнопочки переделать под туры
-            <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
-            <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
-            <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
-             -->
+    <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
+    <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
+    <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
+     -->
         </p>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Region)
+                            @Html.DisplayNameFor(model => model.Region.RegionName)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.RegionImage)
+                            @Html.DisplayNameFor(model => model.Region.RegionImage)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.City)
+                            @Html.DisplayNameFor(model => model.TourCity.City)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.HotelType)
@@ -51,7 +53,7 @@
                             @Html.DisplayNameFor(model => model.DocLink)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.HotelLink)
+                            @Html.DisplayNameFor(model => model.HotelImage)
                         </th>
                         <th></th>
                     </tr>
@@ -61,13 +63,13 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Region)
+                                @Html.DisplayFor(modelItem => item.Region.RegionName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.RegionImage)
+                                @Html.DisplayFor(modelItem => item.Region.RegionImage)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.City)
+                                @Html.DisplayFor(modelItem => item.TourCity.City)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.HotelType)
@@ -91,7 +93,7 @@
                                 @Html.DisplayFor(modelItem => item.DocLink)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.HotelLink)
+                                @Html.DisplayFor(modelItem => item.HotelImage)
                             </td>
                             <td>
                                 <a asp-action="EditTour" asp-route-id="@item.ID">Edit</a> |

@@ -85,7 +85,7 @@ namespace GalaTour.Controllers
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("ExcursionList", "Admin");
         }
 
         /**** Конец ****/
@@ -300,9 +300,48 @@ namespace GalaTour.Controllers
 
 
         /** АВТОБУСНЫЕ ТУРЫ К МОРЮ **/
+
+        // GET
+        public IActionResult AddTourCity()
+        {
+            var tourCity = _context.TourCities.ToList();
+            ViewBag.tourCity = tourCity;
+            return View();
+        }
+        // POST: AddCity
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddTourCity([Bind("ID,City")] TourCity tourCity)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(tourCity);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(BusTourList));
+            }
+            return View(tourCity);
+        }
+        // GET: AddRegion
+        public IActionResult AddRegion()
+        {
+            return View();
+        }
+        // POST: AddRegion
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddRegion([Bind("ID,RegionName,RegionImage")] Region tourReg)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(tourReg);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(BusTourList));
+            }
+            return View(tourReg);
+        }
         public async Task<IActionResult> BusTourList()
         {
-            var excursionContext = _context.BusTours;
+            var excursionContext = _context.BusTours.Include(e => e.TourCity).Include(e => e.Region);
             return View(await excursionContext.ToListAsync());
         }
         // GET: Admin/Details/5
@@ -313,7 +352,7 @@ namespace GalaTour.Controllers
                 return NotFound();
             }
 
-            var busTour = await _context.BusTours
+            var busTour = await _context.BusTours.Include(e => e.TourCity).Include(e => e.Region)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (busTour == null)
             {
@@ -326,6 +365,9 @@ namespace GalaTour.Controllers
         // GET: Admin/Create
         public IActionResult CreateTour()
         {
+            ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "City");
+            ViewData["RegionName"] = new SelectList(_context.Regions, "ID", "RegionName");
+            ViewData["RegionImage"] = new SelectList(_context.Regions, "ID", "RegionImage");
             return View();
         }
 
@@ -334,7 +376,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateTour([Bind("ID,Region,RegionImage,City,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelLink")] BusTour busTour)
+        public async Task<IActionResult> CreateTour([Bind("ID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
         {
             if (ModelState.IsValid)
             {
@@ -342,6 +384,9 @@ namespace GalaTour.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(BusTourList));
             }
+            ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "ID", busTour.TourCityID);
+            ViewData["RegionName"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
+            ViewData["RegionImage"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
             return View(busTour);
         }
 
@@ -358,6 +403,8 @@ namespace GalaTour.Controllers
             {
                 return NotFound();
             }
+            ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "ID", busTour.TourCityID);
+            ViewData["RegionID"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
             return View(busTour);
         }
 
@@ -366,7 +413,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditTour(int id, [Bind("ID,Region,RegionImage,City,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelLink")] BusTour busTour)
+        public async Task<IActionResult> EditTour(int id, [Bind("ID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
         {
             if (id != busTour.ID)
             {
@@ -391,6 +438,8 @@ namespace GalaTour.Controllers
                         throw;
                     }
                 }
+                ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "ID", busTour.TourCityID);
+                ViewData["RegionID"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
                 return RedirectToAction(nameof(BusTourList));
             }
             return View(busTour);

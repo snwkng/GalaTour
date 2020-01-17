@@ -61,7 +61,7 @@
                         <label for="inputBusTour__where" class="header__form-label">Куда</label>
                         <select id="inputBusTour__where" class="form-control form__select">
                             <option value="0" selected>Все направления</option>
-                            @foreach (var item in ViewBag.busTour)
+                            @foreach (var item in ViewBag.busTourCity)
                             {
                                 <option value="@item.ID">@Html.Raw(item.City)</option>
                             }
@@ -113,14 +113,14 @@
     <div class="container">
         <h3>Популярные направления</h3>
         <div class="row justify-content-center">
-            @foreach (var item in ViewBag.busTour)
+            @foreach (var item in ViewBag.busTourRegion)
             {
                 <div class="col-margin-bottom col-md-3 col-sm-6">
-                    <a asp-controller="Home" asp-action="BusTours" asp-route-id="@item.ID">
+                    <a asp-controller="Home" asp-action="Region" asp-route-regName="@item.RegionName">
                         <div class="card pop-bus-tours__card" style="background-image: url('/images/tour/@item.RegionImage');">
                             <div style="position: absolute; top: 0; border-radius: 10px; height: 100%; width: 100%; background: rgba(0,0,0, .5);"></div>
                             <div class="pop-bus-tours__card-body">
-                                @Html.Raw(item.Region)
+                                @Html.Raw(item.RegionName)
                             </div>
                         </div>
                     </a>

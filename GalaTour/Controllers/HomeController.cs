@@ -64,11 +64,13 @@ namespace GalaTour.Controllers
             //var eCity = db.ExCities.ToList();
             var eCity = db.Excursions
                 .Include(c => c.ExCity)
-                .Select(c => c.ExCity);
+                .Select(c => c.ExCity).Distinct().ToList();
             ViewBag.eCity = eCity;
             // автобусные туры к морю:
-            var busTour = db.BusTours.ToList();
-            ViewBag.busTour = busTour;
+            var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
+            ViewBag.busTourCity = busTourCity;
+            var busTourRegion = db.BusTours.Include(c => c.Region).Select(c => c.Region).Distinct().ToList();
+            ViewBag.busTourRegion = busTourRegion;
             return View(ex.ToList());
         }
         public IActionResult Excursions()
@@ -79,7 +81,7 @@ namespace GalaTour.Controllers
                     .Where(c => c.Date > date).Count();
             var eCity = db.Excursions
                 .Include(c => c.ExCity)
-                .Select(c => c.ExCity).ToList();
+                .Select(c => c.ExCity).Distinct().ToList();
             ViewBag.eCity = eCity;
             var ex = db.Excursions
                 .Include(c => c.ExCity)
@@ -91,7 +93,7 @@ namespace GalaTour.Controllers
         {
             var eCity = db.Excursions
                 .Include(c => c.ExCity)
-                .Select(c => c.ExCity).ToList();
+                .Select(c => c.ExCity).Distinct().ToList();
             ViewBag.eCity = eCity;
             if (id == 0)
             {
@@ -124,6 +126,12 @@ namespace GalaTour.Controllers
         }
         public IActionResult BusTours()
         {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Region(string regName) // работает, доделать!!!!!
+        {
+            ViewBag.regName = regName;
             return View();
         }
         public IActionResult Contacts()

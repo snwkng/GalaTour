@@ -11,19 +11,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
-                <label asp-for="Region" class="control-label"></label>
-                <input asp-for="Region" class="form-control" />
-                <span asp-validation-for="Region" class="text-danger"></span>
+                <label asp-for="Region.RegionName" class="control-label">Регион</label>
+                <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="RegionImage" class="control-label"></label>
-                <input asp-for="RegionImage" class="form-control" />
-                <span asp-validation-for="RegionImage" class="text-danger"></span>
+                <label asp-for="Region.RegionImage" class="control-label">Ссылка на картуинку региона</label>
+                <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionImage"></select>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
+                <label asp-for="TourCity.City" class="control-label">Город</label>
+                <input asp-for="TourCity.City" class="form-control" />
+                <span asp-validation-for="TourCity.City" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HotelType" class="control-label"></label>
@@ -61,9 +59,9 @@
                 <span asp-validation-for="DocLink" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HotelLink" class="control-label"></label>
-                <input asp-for="HotelLink" class="form-control" />
-                <span asp-validation-for="HotelLink" class="text-danger"></span>
+                <label asp-for="HotelImage" class="control-label"></label>
+                <input asp-for="HotelImage" class="form-control" />
+                <span asp-validation-for="HotelImage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Сохранить" class="btn btn-danger" />
