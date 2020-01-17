@@ -3,75 +3,78 @@
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
     ViewData["Title"] = "Добавить Тур";
 }
-<h4>BusTour</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateTour">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Region" class="control-label"></label>
-                <input asp-for="Region" class="form-control" />
-                <span asp-validation-for="Region" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegionImage" class="control-label"></label>
-                <input asp-for="RegionImage" class="form-control" />
-                <span asp-validation-for="RegionImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HotelType" class="control-label"></label>
-                <input asp-for="HotelType" class="form-control" />
-                <span asp-validation-for="HotelType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HotelName" class="control-label"></label>
-                <input asp-for="HotelName" class="form-control" />
-                <span asp-validation-for="HotelName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AddInfo" class="control-label"></label>
-                <input asp-for="AddInfo" class="form-control" />
-                <span asp-validation-for="AddInfo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DocLink" class="control-label"></label>
-                <input asp-for="DocLink" class="form-control" />
-                <span asp-validation-for="DocLink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HotelLink" class="control-label"></label>
-                <input asp-for="HotelLink" class="form-control" />
-                <span asp-validation-for="HotelLink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="container" style="margin-top: 32px; margin-bottom: 32px;">
+        <h2>Добавление Тура</h2>
 
-<div>
-    <a asp-action="BusTourList">Back to List</a>
-</div>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form asp-action="CreateTour">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Region" class="control-label">Регион</label>
+                        <input asp-for="Region" class="form-control" />
+                        <span asp-validation-for="Region" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegionImage" class="control-label">Ссылка на картуинку региона</label>
+                        <input asp-for="RegionImage" class="form-control" />
+                        <span asp-validation-for="RegionImage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label">Город</label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HotelType" class="control-label">Тип гостиницы (отель, дом отдыха и т.п.)</label>
+                        <input asp-for="HotelType" class="form-control" />
+                        <span asp-validation-for="HotelType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HotelName" class="control-label">Название гостиницы</label>
+                        <input asp-for="HotelName" class="form-control" />
+                        <span asp-validation-for="HotelName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">Описание</label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AddInfo" class="control-label">Дополнительная информация</label>
+                        <textarea asp-for="AddInfo" class="form-control"></textarea>
+                        <span asp-validation-for="AddInfo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label">Стоимость от</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label">Дата</label>
+                        <input asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DocLink" class="control-label"></label>
+                        <input asp-for="DocLink" class="form-control" />
+                        <span asp-validation-for="DocLink" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HotelLink" class="control-label"></label>
+                        <input asp-for="HotelLink" class="form-control" />
+                        <span asp-validation-for="HotelLink" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-danger" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="BusTourList">Назад</a>
+        </div>
+    </div>
 

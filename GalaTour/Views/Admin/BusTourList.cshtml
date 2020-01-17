@@ -4,91 +4,103 @@
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
     ViewData["Title"] = "Туры к морю";
 }
-<p>
-    <a asp-action="CreateTour">Добавить Тур</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Region)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegionImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HotelType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HotelName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DocLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HotelLink)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Region)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegionImage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HotelType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HotelName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddInfo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DocLink)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HotelLink)
-                </td>
-                <td>
-                    <a asp-action="EditTour" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="DetailsTour" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="DeleteTour" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="container-fluid" style="margin-top:24px; margin-bottom: 16px;">
+        <h2 style="margin-bottom: 24px;">Автобусные туры к морю</h2>
+
+        <p style="margin-bottom: 24px;">
+            <a class="btn btn-link" asp-action="Index">Назад</a>
+            <a class="btn btn-outline-danger" asp-action="CreateTour">Добавить тур</a>
+            <!-- Кнопочки переделать под туры
+            <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
+            <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
+            <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
+             -->
+        </p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Region)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RegionImage)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HotelType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HotelName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AddInfo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocLink)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HotelLink)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Region)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegionImage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HotelType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HotelName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AddInfo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocLink)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HotelLink)
+                            </td>
+                            <td>
+                                <a asp-action="EditTour" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-action="DetailsTour" asp-route-id="@item.ID">Details</a> |
+                                <a asp-action="DeleteTour" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

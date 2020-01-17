@@ -10,6 +10,7 @@
         <h2 style="margin-bottom: 24px;">Экскурсионные туры</h2>
 
         <p style="margin-bottom: 24px;">
+            <a class="btn btn-link" asp-action="Index">Назад</a>
             <a class="btn btn-outline-danger" asp-action="Create">Добавить экскурсию</a>
             <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
             <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
@@ -63,11 +64,15 @@
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
                             <td>
-                                <div style="max-height: 100px; overflow:hidden;">@Html.DisplayFor(modelItem => item.Description)</div>
+                                <div style="max-height: 100px; overflow: hidden;">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
                             </td>
                             <td>
-                                <div style="max-height: 100px; overflow:hidden;">@Html.DisplayFor(modelItem => item.ThePriceInclude)</div>
-</td>
+                                <div style="max-height: 100px; overflow:hidden;">
+                                    @Html.DisplayFor(modelItem => item.ThePriceInclude)
+                                </div>
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ImageURL)
                             </td>

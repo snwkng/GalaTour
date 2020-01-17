@@ -60,8 +60,11 @@
                     <div class="form-group col-md-6">
                         <label for="inputBusTour__where" class="header__form-label">Куда</label>
                         <select id="inputBusTour__where" class="form-control form__select">
-                            <option selected disabled>Куда</option>
-                            <option>Кабардинка</option>
+                            <option value="0" selected>Все направления</option>
+                            @foreach (var item in ViewBag.busTour)
+                            {
+                                <option value="@item.ID">@Html.Raw(item.City)</option>
+                            }
                         </select>
                     </div>
                     <div class="form-group col-md-12">
@@ -110,38 +113,22 @@
     <div class="container">
         <h3>Популярные направления</h3>
         <div class="row justify-content-center">
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-bus-tours__card">
-                    <div class="pop-bus-tours__card-body">
-                        Сухуми
-                    </div>
+            @foreach (var item in ViewBag.busTour)
+            {
+                <div class="col-margin-bottom col-md-3 col-sm-6">
+                    <a asp-controller="Home" asp-action="BusTours" asp-route-id="@item.ID">
+                        <div class="card pop-bus-tours__card" style="background-image: url('/images/tour/@item.RegionImage');">
+                            <div style="position: absolute; top: 0; border-radius: 10px; height: 100%; width: 100%; background: rgba(0,0,0, .5);"></div>
+                            <div class="pop-bus-tours__card-body">
+                                @Html.Raw(item.Region)
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-bus-tours__card">
-                    <div class="pop-bus-tours__card-body">
-                        Алушта
-                    </div>
-                </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-bus-tours__card">
-                    <div class="pop-bus-tours__card-body">
-                        Судак
-                    </div>
-                </div>
-            </div>
-            <div class="col-margin-bottom col-md-3 col-sm-6">
-                <div class="card pop-bus-tours__card">
-                    <div class="pop-bus-tours__card-body">
-                        Сухуми
-                    </div>
-                </div>
-            </div>
+            }
         </div>
-        <a class="pop-bus-tours__link" href="">
-            Все направления <i class="material-icons"
-                               style="vertical-align: middle;">keyboard_arrow_right</i>
+        <a class="pop-bus-tours__link" asp-controller="Home" asp-action="BusTours">
+            Все направления <i class="material-icons" style="vertical-align: middle;">keyboard_arrow_right</i>
         </a>
     </div>
 </section> 

@@ -66,6 +66,9 @@ namespace GalaTour.Controllers
                 .Include(c => c.ExCity)
                 .Select(c => c.ExCity);
             ViewBag.eCity = eCity;
+            // автобусные туры к морю:
+            var busTour = db.BusTours.ToList();
+            ViewBag.busTour = busTour;
             return View(ex.ToList());
         }
         public IActionResult Excursions()
