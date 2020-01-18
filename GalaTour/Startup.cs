@@ -86,6 +86,11 @@ namespace GalaTour
                     "bus-tours/{regName}",
                     new { controller = "Home", action = "Region" }
                 );
+                routes.MapRoute(
+                    "bus-tours-city",
+                    "bus-tours/{regName}/{tourCity}",
+                    new { controller = "Home", action="TourCity" }
+                );
 
                 routes.MapRoute(
                     name: "default",
