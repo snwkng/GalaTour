@@ -1,5 +1,93 @@
-
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-<p>@ViewBag.regName</p>
+﻿@model IEnumerable<GalaTour.Models.BusTour>
+@{
+    foreach (var item in Model)
+    {
+        ViewBag.Description = "Автобусные туры в " + item.Region.RegionName + "из Орла - Туристическое агентство ГалаТур";
+        ViewBag.Keywords = "Экскурсии из Орла, Экскурсионные туры из Орла, Экскурсии из Орла по России и СНГ";
+        ViewBag.Title = "Автобусные туры в " + item.Region.RegionName + " из Орла";
+    }
+}
+<section class="ex-header">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="~/">
+                <span style="color: #ff5722">G</span>ala<span style="color:#009688">T</span>our
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="material-icons">
+                    menu
+                </i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="BusTours">Автобусные туры к морю</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Excursions">Экскурсии</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="ToursAbroad">Туры за границу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="ex-section-header d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="intro-text">
+                    <h1 class="intro-lead-in">Автобусные туры в @Html.Raw(ViewBag.RegionName) из Орла</h1>
+            </div>
+            <div class="header-nav">
+            </div>
+            <form id="form" class="justify-content-center align-items-center" asp-action="bus-tours" method="get">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState" class="header__form-label">Откуда</label>
+                        <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputExcursion__where" class="header__form-label">Куда</label>
+                        <select id="inputExcursion__where" name="id" class="form-control form__select">
+                            <option value="0" selected>Все направления</option>
+                            @foreach (var item in ViewBag.busTourCity)
+                            {
+                                <option value="@item.ID">@Html.Raw(item.City)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-search">
+                            Найти
+                            <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
+                                margin-bottom: 1px;">
+                                arrow_forward
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+</section>
+<section class="section-bus-tour-hotel container">
+    <h2>Автобусные туры в @ViewBag.RegionName</h2>
+    <div class="row d-flex justify-content-start">
+        @foreach (var item in Model)
+        {
+            <a href="" class="hotel-card col-md-3 col-sm-4 col-6">
+                <div class="hotel-card-img" style="background-image: url(/images/tour/@item.Region.RegionImage)"></div>
+                <div class="hotel-card-content">
+                    <p class="hotel-card-content--city">Кабардинка</p>
+                    <p class="hotel-card-content--hotel-info" title="">Гостеовй дом У Владимира</p>
+                    <p class="hotel-card-content--price">от 9540 за поездку</p>
+                </div>
+            </a>
+        }
+    </div>
+</section>

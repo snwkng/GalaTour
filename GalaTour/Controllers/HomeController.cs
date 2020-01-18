@@ -131,8 +131,14 @@ namespace GalaTour.Controllers
         [HttpGet]
         public IActionResult Region(string regName) // работает, доделать!!!!!
         {
-            ViewBag.regName = regName;
-            return View();
+            ViewBag.RegionName = regName;
+            var busTour = db.BusTours
+                .Include(c => c.Region)
+                .Include(c => c.TourCity)
+                .Where(c => c.Region.RegionName == regName).ToList();
+            var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
+            ViewBag.busTourCity = busTourCity;
+            return View(busTour);
         }
         public IActionResult Contacts()
         {
