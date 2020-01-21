@@ -124,19 +124,36 @@ namespace GalaTour.Controllers
                 .Where(c => c.ID == id).ToList();
             return View(ex);
         }
-        public IActionResult BusTours()
+        public IActionResult BusTours() // Похоже, что этот контроллер никогда не запускается...
         {
-            return View();
+            var busTour = db.BusTours
+                .Include(c => c.Region)
+                .Include(c => c.TourCity).ToList();
+            var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
+            ViewBag.busTourCity = busTourCity;
+            return View(busTour);
         }
         [HttpGet]
-        [Route("bus-tours/")]
-        public IActionResult BusTours(string City)
+        public IActionResult BusTours(string City) 
         {
-            ViewBag.tourCity = City;
+            ViewBag.CityName = "к морю";
             var busTour = db.BusTours
+                .Include(c => c.Region)
+                .Include(c => c.TourCity).ToList();
+            if (City == "all")
+            {
+                 busTour = db.BusTours
+                .Include(c => c.Region)
+                .Include(c => c.TourCity).ToList();
+            }
+            else if (City != null)
+            {
+                ViewBag.CityName = "в " + City;
+                busTour = db.BusTours
                 .Include(c => c.Region)
                 .Include(c => c.TourCity)
                 .Where(c => c.TourCity.City == City).ToList();
+            }
             var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
             ViewBag.busTourCity = busTourCity;
             return View(busTour);
@@ -151,6 +168,14 @@ namespace GalaTour.Controllers
                 .Where(c => c.Region.RegionName == regName).ToList();
             var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
             ViewBag.busTourCity = busTourCity;
+            return View(busTour);
+        }
+        [HttpGet]
+        public IActionResult Hotel(string regName, string city, string hotelName)
+        {
+            var busTour = db.BusTours
+                 .Include(c => c.Region)
+                 .Include(c => c.TourCity).ToList();
             return View(busTour);
         }
         public IActionResult Contacts()

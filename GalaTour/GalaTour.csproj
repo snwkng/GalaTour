@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\docs\ex\" />
-    <Folder Include="wwwroot\images\tour\hotels\" />
   </ItemGroup>
 
   <ItemGroup>

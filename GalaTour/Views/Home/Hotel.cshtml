@@ -1,0 +1,27 @@
+@model IEnumerable<GalaTour.Models.BusTour>
+@{
+    foreach (var item in Model)
+    {
+        ViewBag.Description = "Автобусный тур в " + item.TourCity.City + "из Орла, " + item.HotelType + " " + item.HotelName + " - Туристическое агентство ГалаТур";
+        ViewBag.Keywords = "";
+        ViewBag.Title = "Автобусные туры в " + item.TourCity.City + " из Орла";
+    }
+}
+
+    <section class="section-bus-tour-hotel container">
+        <h2>Автобусные туры в</h2>
+        <div class="row d-flex justify-content-start">
+            @foreach (var item in Model)
+            {
+                <a class="hotel-card col-md-3 col-sm-4 col-6" asp-controller="Home" asp-action="Hotel" asp-all-route-data='new Dictionary<string,string> { { "regName", item.Region.RegionName }, {"city", item.TourCity.City }, { "hotelName", item.HotelName } }'>
+                    <!-- настроить роут -->
+                    <div class="hotel-card-img" style="background-image: url(/images/tour/hotels/@item.HotelImage)"></div>
+                    <div class="hotel-card-content">
+                        <p class="hotel-card-content--city">@item.TourCity.City</p>
+                        <p class="hotel-card-content--hotel-info" title=""><span>@item.HotelType</span> @item.HotelName</p>
+                        <p class="hotel-card-content--price">от @item.Price за поездку</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </section>

@@ -91,6 +91,11 @@ namespace GalaTour
                     "bus-tours/{City}",
                     new { controller = "Home", action = "BusTours" }
                 );
+                routes.MapRoute(
+                    "bus-tours-hotel",
+                    "bus-tours/{regName}/{city}/{hotelName}",
+                    new { controller = "Home", action = "Hotel" }
+                );
 
                 routes.MapRoute(
                     name: "default",
