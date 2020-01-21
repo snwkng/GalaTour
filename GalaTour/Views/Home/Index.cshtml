@@ -51,7 +51,7 @@
                     </i>
                 </a>
             </div>
-            <form id="bus-tours__form" class="justify-content-center align-items-center" asp-action="bus-tours" method="get">
+            <form id="bus-tours__form" class="justify-content-center align-items-center" asp-action="BusTours" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="header__form-label">Откуда</label>
@@ -59,16 +59,16 @@
                     </div>
                     <div class="form-group col-md-6"> 
                         <label for="inputBusTour__where" class="header__form-label">Куда</label>
-                        <select id="inputBusTour__where" class="form-control form__select">
-                            <option value="0" selected>Все направления</option>
+                        <select id="inputBusTour__where" class="form-control form__select" name="city">
+                            <option value="all" selected>Все направления</option>
                             @foreach (var item in ViewBag.busTourCity)
                             {
-                                <option value="@item.ID">@Html.Raw(item.City)</option>
+                                <option value="@item.City">@Html.Raw(item.City)</option>
                             }
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-search">
+                        <button type="submit" class="btn btn-search" asp-controller="Home" asp-action="BusTours">
                             Найти
                             <i class="material-icons" style="vertical-align: middle;     margin-left: -25px;
                                 margin-bottom: 1px;">

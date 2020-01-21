@@ -129,7 +129,20 @@ namespace GalaTour.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Region(string regName) // работает, доделать!!!!!
+        [Route("bus-tours/")]
+        public IActionResult BusTours(string City)
+        {
+            ViewBag.tourCity = City;
+            var busTour = db.BusTours
+                .Include(c => c.Region)
+                .Include(c => c.TourCity)
+                .Where(c => c.TourCity.City == City).ToList();
+            var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
+            ViewBag.busTourCity = busTourCity;
+            return View(busTour);
+        }
+        [HttpGet]
+        public IActionResult Region(string regName)
         {
             ViewBag.RegionName = regName;
             var busTour = db.BusTours
