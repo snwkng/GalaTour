@@ -57,7 +57,7 @@ namespace GalaTour.Controllers
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("ExcursionList", "Admin");
         }
 
         // GET: Admin/AddPrice
@@ -66,7 +66,7 @@ namespace GalaTour.Controllers
             return View();
         }
 
-        // Post: Admin/AddImage
+        // Post: Admin/AddPrice
         [HttpPost]
         [Obsolete]
         public async Task<IActionResult> AddPrice(IFormFile uploadedFile)
@@ -483,6 +483,66 @@ namespace GalaTour.Controllers
         {
             return View();
         }
+
+        /**** Логика добавления файлов ТУРОВ К МОРЮ****/
+
+        // GET: Admin/AddImage
+        public IActionResult AddImageTour()
+        {
+            return View();
+        }
+
+        // Post: Admin/AddImage
+        [HttpPost]
+        [Obsolete]
+        public async Task<IActionResult> AddImageTour(IFormFile uploadedFile)
+        {
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/images/tour/hotels/" + uploadedFile.FileName;
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("BusTourList", "Admin");
+        }
+
+        // GET: Admin/AddPrice
+        public IActionResult AddPriceTour()
+        {
+            return View();
+        }
+
+        // Post: Admin/AddPrice
+        [HttpPost]
+        [Obsolete]
+        public async Task<IActionResult> AddPriceTour(IFormFile uploadedFile)
+        {
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/docs/tours/" + uploadedFile.FileName;
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("BusTourList", "Admin");
+        }
+
+        /**** Конец ****/
 
     }
 }

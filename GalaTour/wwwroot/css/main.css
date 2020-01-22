@@ -315,6 +315,7 @@
     margin-right: 6px !important;
     text-overflow: ellipsis !important;
     color: #ff5722;
+    text-decoration: none;
 }
 
 /* Section pop-bus-tours end*/
@@ -856,6 +857,12 @@
     background-color: #fff;
     z-index: 9999;
     margin-top: 16px;
+}
+.hotel-nav-list {
+    padding: 16px 0px 16px 0px;
+}
+.hotel-nav-list__a {
+    margin-right: 8px;
 }
 /************************************************************************************************************************/
 /* section tourist */

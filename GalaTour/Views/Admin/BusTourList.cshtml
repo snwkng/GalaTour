@@ -11,12 +11,9 @@
             <a class="btn btn-link" asp-action="Index">Назад</a>
             <a class="btn btn-outline-danger" asp-action="CreateTour">Добавить тур</a>
             <a class="btn btn-outline-info" asp-action="AddRegion">Добавить регион</a>
+            <a class="btn btn-outline-success" asp-action="AddImageTour">Добавить изображение</a>
+            <a class="btn btn-outline-info" asp-action="AddPriceTour">Добавить Прайс</a>
             <a class="btn btn-outline-primary" asp-action="AddTourCity">Добавить Город</a>
-            <!-- Кнопочки переделать под туры
-    <a class="btn btn-outline-success" asp-action="AddImage">Добавить изображение</a>
-    <a class="btn btn-outline-info" asp-action="AddPrice">Добавить Прайс</a>
-    <a class="btn btn-outline-primary" asp-action="AddCity">Добавить Город</a>
-     -->
         </p>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -78,10 +75,14 @@
                                 @Html.DisplayFor(modelItem => item.HotelName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Description)
+                                <div style="max-height: 100px; overflow-y: scroll; overflow-x: hidden;">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AddInfo)
+                                <div style="max-height: 100px; overflow-y: scroll; overflow-x: hidden;">
+                                    @Html.DisplayFor(modelItem => item.AddInfo)
+                                </div>
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Price)

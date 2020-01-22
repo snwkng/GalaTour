@@ -44,37 +44,42 @@
 <div class="container hotel-nav__sticky">
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+            <div class="hotel-nav-list">
+                <a class="hotel-nav-list__a" href="">Описание</a>
+                <a class="hotel-nav-list__a" href="">Инофрмация</a>
+                <a class="hotel-nav-list__a" href="">Даты и цены</a>
+                <a class="hotel-nav-list__a" href="">Скачать прайс</a>
+            </div>
         </div>
     </div>
 </div>
-<section class="section-bus-tour-hotel container" style="height: 1000px;">
-    <h2>Автобусные туры в</h2>
-    <div class="row d-flex justify-content-start">
+<section class="section-hotel-main container">
+    <div class="row d-flex justify-content-center">
         @foreach (var item in Model)
         {
-            <a class="hotel-card col-md-3 col-sm-4 col-6" asp-controller="Home" asp-action="Hotel" asp-all-route-data='new Dictionary<string,string> { { "regName", item.Region.RegionName }, {"city", item.TourCity.City }, { "hotelName", item.HotelName } }'>
-                <!-- настроить роут -->
-                <div class="hotel-card-img" style="background-image: url(/images/tour/hotels/@item.HotelImage)"></div>
-                <div class="hotel-card-content">
-                    <p class="hotel-card-content--city">@item.TourCity.City</p>
-                    <p class="hotel-card-content--hotel-info" title=""><span>@item.HotelType</span> @item.HotelName</p>
-                    <p class="hotel-card-content--price">от @item.Price за поездку</p>
+            <div class="col-md-12">
+                <div>
+                    <h2>@item.HotelName</h2>
+                    <span>@item.HotelType</span>
+                    <hr />
                 </div>
-            </a>
+                <div>
+                    <h3>Описание</h3>
+                    <p>@item.Description</p>
+                    <hr />
+                </div>
+                <div>
+                    <h3>Дополнительная информация</h3>
+                    <p>@item.AddInfo</p>
+                    <hr />
+                </div>
+                <div>
+                    <h3>Даты и цены</h3>
+                    <p>@item.Price</p>
+                    <span>@item.Date</span>
+                    <hr />
+                </div>
+            </div>
         }
     </div>
 </section>
