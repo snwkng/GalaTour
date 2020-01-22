@@ -842,6 +842,21 @@
     line-height: 20px;
 }
 /* bus-tours page end */
+
+/* Hotel page */
+.hotel-header {
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hotel-nav__sticky {
+    position: sticky;
+    top: 54px;
+    background-color: #fff;
+    z-index: 9999;
+    margin-top: 16px;
+}
 /************************************************************************************************************************/
 /* section tourist */
 .section-tourist {

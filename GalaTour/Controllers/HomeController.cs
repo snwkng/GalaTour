@@ -173,9 +173,12 @@ namespace GalaTour.Controllers
         [HttpGet]
         public IActionResult Hotel(string regName, string city, string hotelName)
         {
+            ViewBag.HotelImage = "";
             var busTour = db.BusTours
                  .Include(c => c.Region)
-                 .Include(c => c.TourCity).ToList();
+                 .Include(c => c.TourCity)
+                 .Where(c => c.Region.RegionName == regName && c.TourCity.City == city && c.HotelName == hotelName)
+                 .ToList();
             return View(busTour);
         }
         public IActionResult Contacts()
