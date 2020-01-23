@@ -17,7 +17,7 @@ using System.IO;
 
 namespace GalaTour.Controllers
 {
-    //[Authorize] авторизация?
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ExcursionContext _context;

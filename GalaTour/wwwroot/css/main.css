@@ -856,13 +856,41 @@
     top: 54px;
     background-color: #fff;
     z-index: 9999;
-    margin-top: 16px;
+    margin-top: 8px;
+    border-bottom: 1px solid rgb(235, 235, 235)
 }
 .hotel-nav-list {
     padding: 16px 0px 16px 0px;
+    display: inline-flex;
 }
 .hotel-nav-list__a {
-    margin-right: 8px;
+    
+}
+.dot {
+    margin: 0px 6px;
+}
+.hotel-main--content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.125em;
+    color: rgb(72, 72, 72);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px;
+}
+.hotel-main--content h3 {
+    margin: 8px 0px 16px 0px;
+}
+.hotel-main--content br {
+    padding: 8px 0px 8px 0px;
+}
+.hotel-main--content span, .hotel-main--content p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.375em;
+    letter-spacing: 0.5px;
+    color: rgb(72, 72, 72);
+    margin: 0px;
 }
 /************************************************************************************************************************/
 /* section tourist */

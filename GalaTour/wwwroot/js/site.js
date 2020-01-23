@@ -82,8 +82,9 @@ $('#VP').click(function () {
 
 
 // Excursion Tour
-var description = document.getElementById("description").textContent;
+
 var thePriceInclude = document.getElementById("thePriceInclude").innerHTML;
+var description = document.getElementById("description").textContent;
 function FormatDescription(text) {
     text = text.replace(/1 день:/, "<p>1 День:</p>");
     text = text.replace(/2 день:/, "<p>2 День:</p>");
@@ -102,5 +103,8 @@ function FormatThePriceInclude(text) {
 
     document.getElementById("thePriceInclude").innerHTML = text;
 }
+
 FormatDescription(description);
 FormatThePriceInclude(thePriceInclude);
+
+// Hotel

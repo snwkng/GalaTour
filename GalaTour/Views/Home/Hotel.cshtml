@@ -6,6 +6,7 @@
         ViewBag.Keywords = "";
         ViewBag.Title = "Автобусные туры в " + item.TourCity.City + " из Орла";
         ViewBag.HotelImage = item.HotelImage;
+        ViewBag.File = item.DocLink;
     }
 }
 <header class="hotel-header" style="background-image: url('/images/tour/hotels/@ViewBag.HotelImage')">
@@ -41,14 +42,19 @@
         </div>
     </nav>
 </header>
-<div class="container hotel-nav__sticky">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="hotel-nav-list">
-                <a class="hotel-nav-list__a" href="">Описание</a>
-                <a class="hotel-nav-list__a" href="">Инофрмация</a>
-                <a class="hotel-nav-list__a" href="">Даты и цены</a>
-                <a class="hotel-nav-list__a" href="">Скачать прайс</a>
+<div class="hotel-nav__sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hotel-nav-list">
+                    <a class="hotel-nav-list__a" href="#hotelDescription">Описание</a><span class="dot"> · </span>
+                    <a class="hotel-nav-list__a" href="#hotelInfo">Инофрмация</a><span class="dot"> · </span>
+                    <a class="hotel-nav-list__a" href="#hotelDatePrice">Даты и цены</a><span class="dot"> · </span>
+                    <form method="post" asp-controller="Home" asp-action="GetFileTour">
+                            <input name="FileName" value="@ViewBag.File" style="display: none;">
+                            <button type="submit"><i class="fas fa-file-download"></i> <span>Скачать прайс</span></button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -58,28 +64,49 @@
         @foreach (var item in Model)
         {
             <div class="col-md-12">
-                <div>
+                <div class="hotel-main--content" id="hotelName">
                     <h2>@item.HotelName</h2>
                     <span>@item.HotelType</span>
                     <hr />
                 </div>
-                <div>
+                <div class="hotel-main--content" id="hotelDescription">
                     <h3>Описание</h3>
-                    <p>@item.Description</p>
+                    <div  id="hotelDescription">@Html.Raw(item.Description)</div>
                     <hr />
                 </div>
-                <div>
+                <div class="hotel-main--content" id="hotelInfo">
                     <h3>Дополнительная информация</h3>
-                    <p>@item.AddInfo</p>
+                    <p id="hotelAddInfo">@Html.Raw(item.AddInfo)</p>
                     <hr />
                 </div>
-                <div>
+                <div class="hotel-main--content" id="hotelDatePrice">
                     <h3>Даты и цены</h3>
-                    <p>@item.Price</p>
-                    <span>@item.Date</span>
+                    <p><span><strong>Заезды:</strong> @item.Date</span> <strong>Цена от:</strong> @item.Price &#8381;</p>
                     <hr />
                 </div>
             </div>
         }
     </div>
 </section>
+<script>
+    // Hotel
+    var hotelDescription = document.getElementById("hotelDescription").innerHTML;
+    var hotelAddInfo = document.getElementById("hotelAddInfo").innerHTML;
+    function FormatDescriptionHotel(text, text1) {
+        text = text.replace(/Расположение:/, "<strong>Расположение:</strong>");
+        text = text.replace(/Размещение:/, "<br><strong>Размещение:</strong>");
+        text = text.replace(/Пляж:/, "<br><strong>Пляж:</strong>");
+        text = text.replace(/Питание:/, "<br><strong>Питание:</strong>");
+        text = text.replace(/Условия заезда-выезда:/, "<br><strong>Условия заезда-выезда:</strong>");
+
+        document.getElementById("hotelDescription").innerHTML = text;
+
+        text1 = text1.replace(/Дополнительно оплачивается курортный сбор/, "<strong>Дополнтиельно оплачивается курортный сбор</strong>");
+        text1 = text1.replace(/Адрес:/, "<br><strong>Адрес:</strong>");
+        text1 = text1.replace(/Необходимые документы:/, "<br><strong>Необходимые документы:</strong>");
+        text1 = text1.replace(/В стоимость тура входит:/, "<br><strong>В стоимость тура входит:</strong>");
+
+        document.getElementById("hotelAddInfo").innerHTML = text1;
+    }
+    FormatDescriptionHotel(hotelDescription, hotelAddInfo);
+</script>

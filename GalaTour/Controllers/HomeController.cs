@@ -181,6 +181,38 @@ namespace GalaTour.Controllers
                  .ToList();
             return View(busTour);
         }
+        [HttpPost]
+        [Obsolete]
+        public IActionResult GetFileTour(string FileName)
+        {
+            string file_type = "";
+            if (FileName != null || FileName != "")
+            {
+                // Путь к файлу
+                string file_path = Path.Combine(_appEnvironment.ContentRootPath, "wwwroot/docs/tours/" + FileName);
+                // Тип файла - content-type
+                if (FileName.Contains(".pdf"))
+                {
+                    file_type = "application/pdf";
+                }
+                if (FileName.Contains(".docx"))
+                {
+                    file_type = "application/docx";
+                }
+                if (FileName.Contains(".doc"))
+                {
+                    file_type = "application/doc";
+                }
+                if (FileName.Contains(".rtf"))
+                {
+                    file_type = "application/rtf";
+                }
+                // Имя файла - необязательно
+                string file_name = FileName;
+                return PhysicalFile(file_path, file_type, file_name);
+            }
+            return RedirectToAction("BusTours");
+        }
         public IActionResult Contacts()
         {
             return View();
