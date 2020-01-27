@@ -376,7 +376,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateTour([Bind("ID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
+        public async Task<IActionResult> CreateTour([Bind("ID,RegionID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
         {
             if (ModelState.IsValid)
             {
@@ -385,8 +385,8 @@ namespace GalaTour.Controllers
                 return RedirectToAction(nameof(BusTourList));
             }
             ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "ID", busTour.TourCityID);
-            ViewData["RegionName"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
-            ViewData["RegionImage"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
+            ViewData["RegionName"] = new SelectList(_context.Regions, "ID", "RegionName", busTour.RegionID);
+            ViewData["RegionImage"] = new SelectList(_context.Regions, "ID", "RegionImage", busTour.RegionID);
             return View(busTour);
         }
 
@@ -403,8 +403,9 @@ namespace GalaTour.Controllers
             {
                 return NotFound();
             }
-            ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "ID", busTour.TourCityID);
-            ViewData["RegionID"] = new SelectList(_context.Regions, "ID", "ID", busTour.RegionID);
+            ViewData["TourCityID"] = new SelectList(_context.TourCities, "ID", "City", busTour.TourCityID);
+            ViewData["RegionName"] = new SelectList(_context.Regions, "ID", "RegionName", busTour.RegionID);
+            ViewData["RegionImage"] = new SelectList(_context.Regions, "ID", "RegionImage", busTour.RegionID);
             return View(busTour);
         }
 
@@ -413,7 +414,7 @@ namespace GalaTour.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditTour(int id, [Bind("ID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
+        public async Task<IActionResult> EditTour(int id, [Bind("ID,RegionID,RegionID,TourCityID,HotelType,HotelName,Description,AddInfo,Price,Date,DocLink,HotelImage")] BusTour busTour)
         {
             if (id != busTour.ID)
             {

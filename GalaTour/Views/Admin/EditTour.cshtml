@@ -15,13 +15,12 @@
                 <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Region.RegionImage" class="control-label">Ссылка на картуинку региона</label>
+                <label asp-for="Region.RegionImage" class="control-label">Ссылка на картинку региона</label>
                 <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionImage"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TourCity.City" class="control-label">Город</label>
-                <input asp-for="TourCity.City" class="form-control" />
-                <span asp-validation-for="TourCity.City" class="text-danger"></span>
+                <label asp-for="TourCityID" class="control-label">Город</label>
+                <select asp-for="TourCityID" class="form-control" asp-items="ViewBag.TourCityID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="HotelType" class="control-label"></label>

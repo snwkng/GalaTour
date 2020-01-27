@@ -1,0 +1,18 @@
+@model IEnumerable<GalaTour.Models.FileModel>
+@{
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+    ViewBag.Title = "Добавить изображение";
+}
+<div class="container" style="margin-top:32px; margin-bottom:32px;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6" style="background-color: #f5f5f5; border-radius: .25rem; padding: 8px;">
+            <h3 style="padding: 16px;">Выберите изображение для загрузки</h3>
+            <form asp-action="AddImageTour" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                <input type="file" name="uploadedFile" style="padding: 16px;"><br>
+                <input type="submit" class="btn btn-success" value="Загрузить" style="margin: 16px;">
+            </form>
+
+            <a asp-action="BusTourList" style="padding: 16px;">Назад</a>
+        </div>
+    </div>
+</div>
