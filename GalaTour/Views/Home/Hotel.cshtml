@@ -49,10 +49,10 @@
                 <div class="hotel-nav-list">
                     <a class="hotel-nav-list__a" href="#hotelDescription">Описание</a><span class="dot"> · </span>
                     <a class="hotel-nav-list__a" href="#hotelInfo">Инофрмация</a><span class="dot"> · </span>
-                    <a class="hotel-nav-list__a" href="#hotelDatePrice">Даты и цены</a><span class="dot"> · </span>
-                    <form method="post" asp-controller="Home" asp-action="GetFileTour">
+                    <a class="hotel-nav-list__a" href="#hotelDatePrice">Даты и цены</a><span class="dot dot-small-device"> · </span>
+                    <form class="hotel-nav-list__form" method="post" asp-controller="Home" asp-action="GetFileTour">
                             <input name="FileName" value="@ViewBag.File" style="display: none;">
-                            <button type="submit"><i class="fas fa-file-download"></i> <span>Скачать прайс</span></button>
+                            <button class="hotel-nav-list__download btn btn-outline-danger" type="submit"><i class="fas fa-file-download"></i> <span>Скачать прайс</span></button>
                     </form>
                 </div>
             </div>
@@ -90,6 +90,21 @@
 </section>
 <script>
     // Hotel
+    // scroll to anchor (preview version)
+    const anchors = document.querySelectorAll('a[href*="#"]')
+
+    for (let anchor of anchors) {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault()
+    
+        const blockID = anchor.getAttribute('href').substr(1)
+    
+        document.getElementById(blockID).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      })
+    }
     var hotelDescription = document.getElementById("hotelDescription").innerHTML;
     var hotelAddInfo = document.getElementById("hotelAddInfo").innerHTML;
     function FormatDescriptionHotel(text, text1) {

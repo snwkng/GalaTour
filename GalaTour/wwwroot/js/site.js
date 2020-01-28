@@ -19,7 +19,7 @@ $(function () {
 });
 $("#click").click(function () {
     $('html, body').animate({
-        scrollTop: $("#bus-rent").offset().top
+        scrollTop: $("#bus-rent").offset().top - 56
     }, 1000);
 });
 $('#bus-tours__button').click(function () {

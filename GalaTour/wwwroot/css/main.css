@@ -862,9 +862,22 @@
 .hotel-nav-list {
     padding: 16px 0px 16px 0px;
     display: inline-flex;
+    align-items: baseline;
 }
 .hotel-nav-list__a {
-    
+    color: #009688;
+    transition: all .2s ease-in-out;
+}
+.hotel-nav-list__a:hover, .hotel-nav-list__a:focus {
+    color: #ff5722;
+}
+.hotel-nav-list__download {
+    color: #ff5722 !important;
+    border-color: #ff5722 !important;
+}
+.hotel-nav-list__download:hover, .hotel-nav-list__download:focus {
+    background-color: #ff5722 !important;
+    color: #fff !important;
 }
 .dot {
     margin: 0px 6px;
@@ -891,6 +904,21 @@
     letter-spacing: 0.5px;
     color: rgb(72, 72, 72);
     margin: 0px;
+}
+
+@media(max-width: 575px) {
+    .hotel-nav-list__form {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        padding: 16px 0px 16px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .dot-small-device {
+        display: none;
+    }
 }
 /************************************************************************************************************************/
 /* section tourist */
