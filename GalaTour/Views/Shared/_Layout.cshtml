@@ -9,13 +9,13 @@
     <title>@Html.Raw(ViewData["Title"]) - ГалаТур</title>
 
     <environment include="Development">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link rel="stylesheet" href="~/css/main.css" />
+        <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
         <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
@@ -128,12 +128,16 @@
             ga('create', 'UA-58848810-1', 'auto');
             ga('send', 'pageview');
         </script>
-        <script src="//vk.com/js/api/openapi.js?139"></script>
+        <script>
+            $(document).ready(function () {
+                $.getScript("//vk.com/js/api/openapi.js?139", function () {
+                    VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
+                });
+            });
+        </script>
         <!-- VK Widget -->
         <div id="vk_community_messages" class="vk_community"></div>
-        <script>
-            VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
-        </script>
+
     </environment>
     <environment exclude="Development">
         <!-- Optional JavaScript -->
@@ -162,12 +166,17 @@
             ga('create', 'UA-58848810-1', 'auto');
             ga('send', 'pageview');
         </script>
-        <script src="//vk.com/js/api/openapi.js?139"></script>
+        <script>
+            $(document).ready(function () {
+                $.getScript("//vk.com/js/api/openapi.js?139", function () {
+                    VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
+                });
+            });
+        </script>
+       
         <!-- VK Widget -->
         <div id="vk_community_messages" class="vk_community"></div>
-        <script>
-            VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
-        </script>
+        
     </environment>
 
     @RenderSection("Scripts", required: false)

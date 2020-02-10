@@ -1,5 +1,11 @@
 /* default styles */
-
+@font-face {
+    font-family: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"';
+    font-size: 1rem;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(https://kit-free.fontawesome.com/releases/latest/webfonts/free-fa-brands-400.woff2) format('woff2');
+    font-display: swap;
+}
 .col-margin-bottom {
     margin-bottom: 30px;
 }

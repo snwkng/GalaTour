@@ -62,9 +62,15 @@ namespace GalaTour
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Add("Cache-Control", "public, max-age=31536000");
+                }
+            });
             app.UseStatusCodePages();
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
 
