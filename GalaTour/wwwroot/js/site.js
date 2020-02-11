@@ -80,3 +80,8 @@ $('#VP').click(function () {
 });
 // Tourist collapse end
 
+// b-lazy
+(function () {
+    // Initialize
+    var bLazy = new Blazy();
+})();

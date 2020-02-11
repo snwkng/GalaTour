@@ -117,7 +117,7 @@
             {
                 <div class="col-margin-bottom col-md-3 col-sm-6">
                     <a asp-controller="Home" asp-action="Region" asp-route-regName="@item.RegionName">
-                        <div class="card pop-bus-tours__card" style="background-image: url('/images/tour/@item.RegionImage');">
+                        <div class="card pop-bus-tours__card b-lazy" data-src="/images/tour/@item.RegionImage">
                             <div style="position: absolute; top: 0; border-radius: 10px; height: 100%; width: 100%; background: rgba(0,0,0, .5);"></div>
                             <div class="pop-bus-tours__card-body">
                                 @Html.Raw(item.RegionName)
@@ -141,7 +141,7 @@
                 <div class="col-margin-bottom col-md-3 col-sm-6">
                     <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
                         <div class="card pop-excursions__card">
-                            <div class="pop-excursions__card-image" style="background-image: url('/images/ex/@item.ImageURL');"></div>
+                            <div class="pop-excursions__card-image b-lazy" data-src="/images/ex/@item.ImageURL"></div>
                             <div class="pop-excursions__card-body">
                                 <h4>@Html.Raw(item.Name)</h4>
                                 <p>@Html.Raw(item.Duration) <span>от @item.Price &#8381;</span></p>
@@ -164,7 +164,7 @@
         <p>Арендуйте туристические автобусы с водителями для групповых путешествий</p>
         <div class="row justify-content-center align-items-center">
             <div class="bus-rent__margin-bottom col-md-6 col-sm-6" style="text-align: center;">
-                <img src="~/images/setra215hd.png" alt="setra" asp-append-version="true">
+                <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/images/setra215hd.png" alt="setra" asp-append-version="true">
             </div>
             <div class="bus-rent__margin-bottom col-md-6 col-sm-6">
                 <div class="bus-rent__about">
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <div class="bus-rent__margin-bottom col-md-6 col-sm-6" style="text-align: center;">
-                <img src="~/images/mercedessprinter.png" alt="mercedes" asp-append-version="true">
+                <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/images/mercedessprinter.png" alt="mercedes" asp-append-version="true">
             </div>
             <!-- Modal -->
             <div class="modal fade" id="busModal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
