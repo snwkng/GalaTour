@@ -170,9 +170,11 @@
         </script>
         <script>
             $(document).ready(function () {
-                $.getScript("//vk.com/js/api/openapi.js?139", function () {
-                    VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
-                });
+                setTimeout(function () {
+                    $.getScript("//vk.com/js/api/openapi.js?139", function () {
+                        VK.Widgets.CommunityMessages("vk_community_messages", 45357153, { welcomeScreen: "1", expanded: "0", disableExpandChatSound: "1", disableNewMessagesSound: "1", tooltipButtonText: "Есть вопрос?" });
+                    });
+                }, 2000);
             });
         </script>
 
