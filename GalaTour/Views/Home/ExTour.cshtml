@@ -53,7 +53,7 @@
                         <li><i class="fas fa-ruble-sign"></i> от @item.Price&#8381;</li>
                         @if (item.HotelName != "")
                         {
-                            <li><i class="fas fa-hotel"></i> <a href="@item.HotelLink" target="_blank" rel="nofollow">@item.HotelName</a></li>
+                            <li><i class="fas fa-hotel"></i> <a href="@item.HotelLink" target="_blank" rel="nofollow">@Html.Raw(item.HotelName)</a></li>
                         }
                     <li>
                         <form method="post" asp-controller="Home" asp-action="GetFile">

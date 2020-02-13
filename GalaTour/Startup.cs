@@ -69,7 +69,8 @@ namespace GalaTour
                     ctx.Context.Response.Headers.Add("Cache-Control", "public, max-age=31536000");
                 }
             });
-            app.UseStatusCodePages();
+            app.UseStatusCodePagesWithReExecute("/Error/Index", "?statusCode={0}");
+            //app.UseStatusCodePages();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
             app.UseAuthentication();

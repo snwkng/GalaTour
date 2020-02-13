@@ -65,8 +65,8 @@
         {
             <div class="col-md-12">
                 <div class="hotel-main--content" id="hotelName">
-                    <h2>@item.HotelName</h2>
-                    <span>@item.HotelType</span>
+                    <h2>@Html.Raw(item.HotelName)</h2>
+                    <span>@Html.Raw(item.HotelType)</span>
                     <hr />
                 </div>
                 <div class="hotel-main--content" id="hotelDescription">
