@@ -7,7 +7,7 @@
     }
     ViewBag.Title = "Экскурсионные туры из Орла";
 }
-<section class="ex-header">
+<div class="ex-header">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="~/">
@@ -48,7 +48,7 @@
             <form id="form" class="justify-content-center align-items-center" asp-action="excursions" method="get">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputState" class="header__form-label">Откуда</label>
+                        <label class="header__form-label">Откуда</label>
                         <input class="form-control form__input" type="text" placeholder="Орёл" readonly>
                     </div>
                     <div class="form-group col-md-6">
@@ -74,7 +74,7 @@
             </form>
         </div>
     </header>
-</section>
+</div>
 <section class="section-default excursions">
     <div class="container">
         <h2 class="excursions__text">Экскурсии из Орла: @ViewBag.SearchCount</h2>
@@ -86,7 +86,7 @@
                     <div class="ex-card__content">
                         <h3>@Html.Raw(item.Name)</h3>
                         <span class="ex-card__content-price">
-                            от @item.Price &#8381
+                            от @item.Price &#8381;
                         </span>
                         <p class="ex-card__content-text">
                             <span>Город: </span> @Html.Raw(item.ExCity.City)
