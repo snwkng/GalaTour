@@ -6,6 +6,10 @@
     <meta name="Author" content="GalaTour Orel">
     <meta name="description" content="@Html.Raw(ViewData["Description"])">
     <meta name="keywords" content="@Html.Raw(ViewData["Keywords"])">
+    @{ 
+        DateTime now = DateTime.Now;
+        ViewBag.DateNow = now.ToString("yyyy");
+    }
     <title>@Html.Raw(ViewData["Title"]) - ГалаТур</title>
 
     <environment include="Development">
@@ -96,7 +100,7 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; 2019. Информация на сайте носит ознакомительный характер и не является публичной офертой.
+                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; @ViewBag.DateNow. Информация на сайте носит ознакомительный характер и не является публичной офертой.
                 </div>
             </div>
         </div>

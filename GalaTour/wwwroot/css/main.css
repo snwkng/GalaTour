@@ -131,7 +131,8 @@
 }
 #bus-tours__form
 {
-    display: block;
+    display: inline-flex;
+    max-width: 70%;
 }
 /************************************************/
 .btn-bus-tours {
@@ -152,10 +153,13 @@
 
 .btn-bus-tours:hover, .btn-bus-tours:focus {
     color: #ff5722;
+    outline: none;
+    box-shadow: none;
 }
 
 #excursions__form {
     display: none;
+    max-width: 70%;
 }
 .btn-excursions {
     color: #fff;
@@ -173,9 +177,11 @@
     border: 1px solid #009688;
 }
 
-.btn-excursions:hover, .btn-excursions:focus {
-    color: #009688;
-}
+    .btn-excursions:hover, .btn-excursions:focus {
+        color: #009688;
+        outline: none;
+        box-shadow: none;
+    }
 
 .btn-bus-rent {
     color: #fff !important;
@@ -197,32 +203,54 @@
 
 .btn-bus-rent:hover, .btn-bus-rent:focus {
     border: 1px solid #fff;
+    outline: none;
+    box-shadow: none;
 }
 
 .header__form-label {
     float: left;
     font-style: normal;
     font-weight: 300;
-    color: #fff !important;
+    color: rgba(255, 255, 255, .8) !important;
     will-change: transform, opacity;
     font-size: .625rem;
     letter-spacing: .0625rem;
     line-height: 1.3125rem;
     text-transform: uppercase;
-    margin-left: 5px;
+    padding-left: 12px;
+    padding-bottom: 2px;
     margin-bottom: 0px !important;
 }
 
 .form__input {
     height: 48px;
-    background-color: #fff !important;
-    color: #222 !important;
+    background-color: rgba(0, 103, 93, .4) !important;
+    border: none;
+    color: rgba(255, 255, 255, .5) !important;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
+
+input[type=text]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .5);
+}
+.form__input:hover, .form__input:focus {
+    outline: none;
+    box-shadow: none;
+}
 .form__select {
     height: 48px;
-    background-color: #fff !important;
-    color: #222 !important;
+    background-color: rgba(0, 103, 93, 0.8) !important;
+    border: none;
+    color: rgba(255, 255, 255, .8) !important;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.form__select:hover, .form__select:focus {
+    outline: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .btn-search {
@@ -237,8 +265,6 @@
     height: 59px;
     padding: 0 20px 0 0;
     background: #ff5722;
-    -webkit-box-shadow: 0 1px 0 0 #d84d00, 0 2px 6px 0 rgba(0, 0, 0, .15);
-    box-shadow: 0 1px 0 0 #d84d00, 0 2px 6px 0 rgba(0, 0, 0, .15);
     border-radius: 5px;
     font-size: 1.375rem;
     color: #fff !important;
@@ -246,6 +272,10 @@
     font-weight: 500;
     text-indent: 25px;
     background-color: #ff5722;
+}
+.btn-search:hover, .btn-search:focus {
+    outline: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 @media(max-width: 767px)
 {
@@ -293,6 +323,7 @@
     background-image: url(../images/crimea.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     border: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -345,6 +376,7 @@
     border-radius: 10px 10px 0 0;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .pop-excursions__card-body {
@@ -507,6 +539,10 @@
 
 /********** EXCURSIONS ***************/
 /* section header for excursions */
+#form {
+    display: inline-flex;
+    max-width: 70%;
+}
 .ex-header {
     height: 100%;
     padding-top: 100px;

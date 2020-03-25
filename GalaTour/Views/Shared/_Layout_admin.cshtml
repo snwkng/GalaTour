@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta name="robots" content="noindex">
@@ -22,6 +22,10 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
         <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     </environment>
+    @{
+        DateTime now = DateTime.Now;
+        ViewBag.DateNow = now.ToString("yyyy");
+    }
 </head>
 <body>
     <main>
@@ -69,7 +73,7 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; 2019. All rights
+                    <span style="color: #ff5722;">G</span><span style="color: #009688">T</span> &copy; @ViewBag.DateNow. All rights
                     reserved. Информация на сайте носит ознакомительный характер и не является публичной офертой.
                 </div>
             </div>

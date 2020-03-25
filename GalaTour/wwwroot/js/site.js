@@ -24,14 +24,14 @@ $("#click").click(function () {
     }, 1000);
 });
 $('#bus-tours__button').click(function () {
-    $('#bus-tours__form').css('display', 'block');
+    $('#bus-tours__form').css('display', 'inline-flex');
     $('.btn-bus-tours').css('color', '#ff5722');
     $('#excursions__form').css('display', 'none');
     $('.btn-excursions').css('color', '#ffffff');
     $('#header__text').text("Поиск автобусных туров к морю из Орла").html();
 });
 $('#excursions__button').click(function () {
-    $('#excursions__form').css('display', 'block');
+    $('#excursions__form').css('display', 'inline-flex');
     $('.btn-excursions').css('color', '#009688');
     $('#bus-tours__form').css('display', 'none');
     $('.btn-bus-tours').css('color', '#ffffff');
