@@ -82,6 +82,7 @@ namespace GalaTour
                 routes.MapRoute("excursions", "excursions", new { controller = "Home", action = "Excursions" });
                 routes.MapRoute("excursion-tour", "excursion/{id:int?}", new { controller = "Home", action = "ExTour" });
                 routes.MapRoute("tours-abroad", "tours-abroad", new { controller = "Home", action = "ToursAbroad" });
+                routes.MapRoute("tour-search", "tour-search", new { controller = "Home", action = "TourSearch" });
                 routes.MapRoute("contacts", "contacts", new { controller = "Home", action = "Contacts" });
                 routes.MapRoute("about", "about", new { controller = "Home", action = "About" });
                 routes.MapRoute("tourist", "tourist", new { controller = "Home", action = "Tourist" });

@@ -897,7 +897,7 @@ input[type=text]::-webkit-input-placeholder {
     position: sticky;
     top: 54px;
     background-color: #fff;
-    z-index: 9999;
+    z-index: 1;
     margin-top: 8px;
     border-bottom: 1px solid rgb(235, 235, 235)
 }
@@ -923,6 +923,10 @@ input[type=text]::-webkit-input-placeholder {
 }
 .dot {
     margin: 0px 6px;
+}
+.hotel-main--content {
+    padding-top: 120px;
+    margin-top: -120px;
 }
 .hotel-main--content h2 {
     font-size: 32px;

@@ -1,10 +1,10 @@
-
 @{
-    ViewBag.Description = "Туристическое агентство ГалаТур - информация о компании";
-    ViewBag.Keywords = "ГалаТур Орёл - о компании";
-    ViewData["Title"] = "О компании";
+    ViewBag.Description = "Найдите свой идеальный тур по России с вместе с туристическим агентством ГалаТур";
+    ViewBag.Keywords = "Туры по России, туры в России, отдых в России, путевки по России, поиск туров по России, внутренние туры";
+    ViewData["Title"] = "Поиск туров по России";
 }
-<div class="about-header">
+
+<div class="section-tours-abroad">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="~/">
@@ -41,18 +41,26 @@
             </div>
         </div>
     </nav>
-</div>
-<div class="section-about">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 about-content">
-                <p>
-                        <span style="color: #ff5722;">Г</span>ала<span style="color: #009688;">Т</span>ур - это Орловское туристическое агентство,
-                        где Вы можете легко забронировать экскурсионные туры, туры к морю, туры заграницу, а также арендовать автобус туристического класса.
-                </p>
-                <p>
-                    Сегодня, бронирование тура стало трудоемким процессом. Наша миссия - создание максимально комфортных и прозрачных условий для бронирования и отдыха!
-                </p>
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <div class="tours-abroad-main">
+                    <p class="tours-abroad__p"><span style="color: #ff5722">G</span>ala<span style="color:#009688">T</span>our</p>
+                    <h2>Доверьте поиск профессионалам</h2>
+                    <h3>
+                        Расскажите нам, где вы хотите отдохнуть, а мы подберем вам тур!
+                    </h3>
+                    <div class="tours-abroad__contacts">
+                        <a class="btn" href="https://vk.com/gtorel" target="_blank"><i class="tours-abroad__contacts-icon fab fa-vk"></i></a>
+                        <a class="btn" href="https://ok.ru/gtorel" target="_blank"><i class="tours-abroad__contacts-icon fab fa-odnoklassniki"></i></a>
+                        <button type="button" class="btn btn-tours-abroad btn-tours-abroad__phone" data-container="body" data-toggle="popover" data-placement="top" data-content="(4862)78-09-58">
+                            <i class="tours-abroad__contacts-icon fas fas fa-phone"></i>
+                        </button>
+                        <button type="button" class="btn btn-tours-abroad btn-tours-abroad__email" data-container="body" data-toggle="popover" data-placement="top" data-content="avtobus-orel.petlaj@yandex.ru">
+                            <i class="tours-abroad__contacts-icon fas fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

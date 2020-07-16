@@ -226,6 +226,10 @@ namespace GalaTour.Controllers
         {
             return View();
         }
+        public IActionResult TourSearch()
+        {
+            return View();
+        }
         public IActionResult ToursAbroad()
         {
             return View();
