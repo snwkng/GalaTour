@@ -230,6 +230,10 @@ namespace GalaTour.Controllers
         {
             return View();
         }
+        public IActionResult Sanatoriums()
+        {
+            return View();
+        }
         public IActionResult ToursAbroad()
         {
             return View();

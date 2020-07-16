@@ -608,7 +608,7 @@ input[type=text]::-webkit-input-placeholder {
 }
 .ex-card__content {
     float: left;
-    padding: 24px;
+    padding: 16px;
 }
 .ex-card__content > h3 {
     color: #000;
@@ -616,7 +616,7 @@ input[type=text]::-webkit-input-placeholder {
     text-decoration: none;
     -webkit-transition: color 0.25s ease;
     transition: color 0.25s ease;
-    font-size: 18px;
+    font-size: 1.1rem;
     line-height: 24px;
     font-weight: 700;
     margin-bottom: 16px;
@@ -625,7 +625,7 @@ input[type=text]::-webkit-input-placeholder {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 24px;
+    padding: 16px;
     font-size: 16px;
     color: #ff5722;
     font-weight: 700;
@@ -1198,3 +1198,18 @@ input[type=text]::-webkit-input-placeholder {
         font-weight: normal;
     }
 }
+
+/******* tour search *********/
+.section-tour-search {
+    height: 300px;
+    width: 100%;
+    background-color: #004a43;
+}
+.tour-search-container {
+    margin-top: -80px;
+    margin-bottom: 32px;
+}
+    .tour-search-container .col-md-12 {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        padding: 0px;
+    }

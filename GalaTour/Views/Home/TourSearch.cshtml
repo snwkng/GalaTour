@@ -4,7 +4,7 @@
     ViewData["Title"] = "Поиск туров по России";
 }
 
-<div class="section-tours-abroad">
+<div class="section-tour-search">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="~/">
@@ -30,7 +30,7 @@
                             Поиск тура
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-controller="Home" asp-action="TourSearch">Поиск туров по России</a>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="TourSearch">Туры по России</a>
                             <a class="dropdown-item" asp-controller="Home" asp-action="ToursAbroad">Подбор тура</a>
                         </div>
                     </li>
@@ -41,27 +41,11 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center align-items-center">
-                <div class="tours-abroad-main">
-                    <p class="tours-abroad__p"><span style="color: #ff5722">G</span>ala<span style="color:#009688">T</span>our</p>
-                    <h2>Доверьте поиск профессионалам</h2>
-                    <h3>
-                        Расскажите нам, где вы хотите отдохнуть, а мы подберем вам тур!
-                    </h3>
-                    <div class="tours-abroad__contacts">
-                        <a class="btn" href="https://vk.com/gtorel" target="_blank"><i class="tours-abroad__contacts-icon fab fa-vk"></i></a>
-                        <a class="btn" href="https://ok.ru/gtorel" target="_blank"><i class="tours-abroad__contacts-icon fab fa-odnoklassniki"></i></a>
-                        <button type="button" class="btn btn-tours-abroad btn-tours-abroad__phone" data-container="body" data-toggle="popover" data-placement="top" data-content="(4862)78-09-58">
-                            <i class="tours-abroad__contacts-icon fas fas fa-phone"></i>
-                        </button>
-                        <button type="button" class="btn btn-tours-abroad btn-tours-abroad__email" data-container="body" data-toggle="popover" data-placement="top" data-content="avtobus-orel.petlaj@yandex.ru">
-                            <i class="tours-abroad__contacts-icon fas fa-envelope"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+</div>
+<div class="container tour-search-container">
+    <div class="row">
+        <div class="col-md-12">
+            <script defer="true" src="//www.delfin-tour.ru/export/frame" data-delfin='655'></script>
         </div>
     </div>
 </div>
