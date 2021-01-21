@@ -99,8 +99,8 @@ namespace GalaTour.Controllers
             if (id == 0)
             {
                 ViewBag.SearchCount = db.Excursions
-                    .Include(c => c.ID)
-                    .Include(c => c.ExCity)
+                   // .Include(c => c.ID)
+                    //.Include(c => c.ExCity)
                     .Where(c => c.Date > date).Count();
                 var e = db.Excursions
                     .Include(c => c.ExCity)
@@ -130,7 +130,7 @@ namespace GalaTour.Controllers
             var busTour = db.BusTours
                 .Include(c => c.Region)
                 .Include(c => c.TourCity).ToList();
-            var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
+            var busTourCity = db.BusTours.Include(c => c.TourCity).Where(c => c.Date != "" || c.Date != null).Select(c => c.TourCity).Distinct().ToList();
             ViewBag.busTourCity = busTourCity;
             return View(busTour);
         }
@@ -139,21 +139,21 @@ namespace GalaTour.Controllers
         {
             ViewBag.CityName = "к морю";
             var busTour = db.BusTours
-                .Include(c => c.Region)
+                .Include(c => c.Region).Where(c => c.Date != "" || c.Date != null)
                 .Include(c => c.TourCity).ToList();
             if (City == "all")
             {
                  busTour = db.BusTours
-                .Include(c => c.Region)
-                .Include(c => c.TourCity).ToList();
+                    .Include(c => c.Region).Where(c => c.Date != "" || c.Date != null)
+                    .Include(c => c.TourCity).ToList();
             }
             else if (City != null)
             {
                 ViewBag.CityName = "в " + City;
                 busTour = db.BusTours
-                .Include(c => c.Region)
-                .Include(c => c.TourCity)
-                .Where(c => c.TourCity.City == City).ToList();
+                    .Include(c => c.Region).Where(c => c.Date != "" || c.Date != null)
+                    .Include(c => c.TourCity)
+                    .Where(c => c.TourCity.City == City).ToList();
             }
             var busTourCity = db.BusTours.Include(c => c.TourCity).Select(c => c.TourCity).Distinct().ToList();
             ViewBag.busTourCity = busTourCity;

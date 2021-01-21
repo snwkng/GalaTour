@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 //using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using GalaTour.Models;
 using Microsoft.EntityFrameworkCore;
@@ -46,12 +47,12 @@ namespace GalaTour
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Admin/Login");
                 });
 
-            services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         [Obsolete]
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -76,40 +77,41 @@ namespace GalaTour
             app.UseCookiePolicy();
             app.UseAuthentication();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("home", "/", new { controller = "Home", action = "Index" });
-                routes.MapRoute("bus-tours", "bus-tours", new { controller = "Home", action = "BusTours" });
-                routes.MapRoute("excursions", "excursions", new { controller = "Home", action = "Excursions" });
-                routes.MapRoute("excursion-tour", "excursion/{id:int?}", new { controller = "Home", action = "ExTour" });
-                routes.MapRoute("tours-abroad", "tours-abroad", new { controller = "Home", action = "ToursAbroad" });
-                routes.MapRoute("tour-search", "tour-search", new { controller = "Home", action = "TourSearch" });
-                routes.MapRoute("contacts", "contacts", new { controller = "Home", action = "Contacts" });
-                routes.MapRoute("about", "about", new { controller = "Home", action = "About" });
-                routes.MapRoute("tourist", "tourist", new { controller = "Home", action = "Tourist" });
-                routes.MapRoute("privacy-policy", "privacy-policy", new { controller = "Home", action = "PrivacyPolicy" });
-                routes.MapRoute("agreement", "agreement", new { controller = "Home", action = "Agreement" });
 
-                routes.MapRoute(
-                    "bus-tours-region",
-                    "bus-tours/{regName}",
-                    new { controller = "Home", action = "Region" }
-                );
-                routes.MapRoute(
-                    "bus-tours-city",
-                    "bus-tours/{City}",
-                    new { controller = "Home", action = "BusTours" }
-                );
-                routes.MapRoute(
-                    "bus-tours-hotel",
-                    "bus-tours/{regName}/{city}/{hotelName}",
-                    new { controller = "Home", action = "Hotel" }
-                );
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+           {
+               endpoints.MapControllerRoute("home", "/", new { controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("bus-tours", "bus-tours", new { controller = "Home", action = "BusTours" });
+                endpoints.MapControllerRoute("excursions", "excursions", new { controller = "Home", action = "Excursions" });
+                endpoints.MapControllerRoute("excursion-tour", "excursion/{id:int?}", new { controller = "Home", action = "ExTour" });
+                endpoints.MapControllerRoute("tours-abroad", "tours-abroad", new { controller = "Home", action = "ToursAbroad" });
+                endpoints.MapControllerRoute("tour-search", "tour-search", new { controller = "Home", action = "TourSearch" });
+                endpoints.MapControllerRoute("contacts", "contacts", new { controller = "Home", action = "Contacts" });
+                endpoints.MapControllerRoute("about", "about", new { controller = "Home", action = "About" });
+                endpoints.MapControllerRoute("tourist", "tourist", new { controller = "Home", action = "Tourist" });
+                endpoints.MapControllerRoute("privacy-policy", "privacy-policy", new { controller = "Home", action = "PrivacyPolicy" });
+                endpoints.MapControllerRoute("agreement", "agreement", new { controller = "Home", action = "Agreement" });
 
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+                endpoints.MapControllerRoute(
+                   "bus-tours-region",
+                   "bus-tours/{regName}",
+                   new { controller = "Home", action = "Region" }
+               );
+                endpoints.MapControllerRoute(
+                   "bus-tours-city",
+                   "bus-tours/{City}",
+                   new { controller = "Home", action = "BusTours" }
+               );
+                endpoints.MapControllerRoute(
+                   "bus-tours-hotel",
+                   "bus-tours/{regName}/{city}/{hotelName}",
+                   new { controller = "Home", action = "Hotel" }
+               );
+
+               endpoints.MapDefaultControllerRoute();
+           });
         }
     }
 }
