@@ -117,6 +117,11 @@
         </div>
     </header>
 </div>
+<secrion class="section-tour-search">
+    <div id="travelsoft-frame-container" data-frame="e582525c57">
+    </div>
+    <script type="text/javascript" src="https://delimir.ru/js/frame-loader.min.js"></script>
+</secrion>
 <!-- ПОПУЛЯРНЫЕ АВТОБУСНЫЕ ТУРЫ -->
 <section class="section-default pop-bus-tours">
     <div class="container">
@@ -140,33 +145,38 @@
             Все направления <i class="material-icons" style="vertical-align: middle;">keyboard_arrow_right</i>
         </a>
     </div>
-</section> 
-<section class="section-default pop-excursions">
-    <div class="container">
-        <h3>Экскурсионные туры из Орла</h3>
-        <div class="row justify-content-center">
-            @foreach (var item in Model.Take(4))
-            {
-                <div class="col-margin-bottom col-md-3 col-sm-6">
-                    <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
-                        <div class="card pop-excursions__card">
-                            <div class="pop-excursions__card-image b-lazy" data-src="/images/ex/@item.ImageURL"></div>
-                            <div class="pop-excursions__card-body">
-                                <h4>@Html.Raw(item.Name)</h4>
-                                <p>@Html.Raw(item.Duration) <span>от @item.Price &#8381;</span></p>
-                                <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            }
-        </div>
-        <a class="pop-excursions__link" asp-controller="Home" asp-action="Excursions">
-            Все экскурсии <i class="material-icons"
-                             style="vertical-align: middle;">keyboard_arrow_right</i>
-        </a>
-    </div>
 </section>
+@{
+    if (ViewBag.exLength == true)
+    {
+        <section class="section-default pop-excursions">
+            <div class="container">
+                <h3>Экскурсионные туры из Орла</h3>
+                <div class="row justify-content-center">
+                    @foreach (var item in Model.Take(4))
+                    {
+                        <div class="col-margin-bottom col-md-3 col-sm-6">
+                            <a asp-controller="Home" asp-action="ExTour" asp-route-id="@item.ID">
+                                <div class="card pop-excursions__card">
+                                    <div class="pop-excursions__card-image b-lazy" data-src="/images/ex/@item.ImageURL"></div>
+                                    <div class="pop-excursions__card-body">
+                                        <h4>@Html.Raw(item.Name)</h4>
+                                        <p>@Html.Raw(item.Duration) <span>от @item.Price &#8381;</span></p>
+                                        <p class="pop-excursions__date">@item.Date.ToString("dd.MM.yyyy")</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <a class="pop-excursions__link" asp-controller="Home" asp-action="Excursions">
+                    Все экскурсии <i class="material-icons"
+                                     style="vertical-align: middle;">keyboard_arrow_right</i>
+                </a>
+            </div>
+        </section>
+    }
+}
 <section class="section-default bus-rent" id="bus-rent">
     <div class="container">
         <h3>Аренда автобусов и микроавтобусов</h3>

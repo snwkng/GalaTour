@@ -1217,3 +1217,37 @@ input[type=text]::-webkit-input-placeholder {
 .table-responsive {
     max-height: 75vh;
 }
+
+.cookie {
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    padding: 20px 40px;
+    background-color: white;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.cookie-section {
+    display: flex;
+    color: slategrey;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.btn-accept-cookie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    text-align: center;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    padding: 10px 20px;
+    background: #ff5722;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #009688;
+}

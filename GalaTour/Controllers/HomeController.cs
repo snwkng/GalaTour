@@ -62,6 +62,8 @@ namespace GalaTour.Controllers
             var ex = db.Excursions
                 .Include(c => c.ExCity)
                 .Where(c => c.Date > date); // Вывод только предстоящих экскурсий
+            var exLength = ex.Count() > 0;
+            ViewBag.exLength = exLength;
             //var eCity = db.ExCities.ToList();
             var eCity = db.Excursions
                 .Include(c => c.ExCity)

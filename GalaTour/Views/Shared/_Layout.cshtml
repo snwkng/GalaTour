@@ -87,9 +87,6 @@
                         <a href="https://ok.ru/gtorel" target="_blank">
                             <i class="social-icon fab fa-odnoklassniki"></i>
                         </a>
-                        <a href="https://www.facebook.com/gtorel" target="_blank">
-                            <i class="social-icon fab fa-facebook-f"></i>
-                        </a>
                     </div>
                     <ul>
                         <li><a asp-controller="Home" asp-action="Agreement">Соглашения</a></li>
@@ -106,6 +103,23 @@
             </div>
         </div>
     </footer>
+
+    @{
+        if (!Context.Request.Cookies.ContainsKey("cookie_agreement"))
+        {
+            <div class="cookie">
+                <div class="cookie-section container">
+                    <div>
+                        Мы используем cookie и аналогичные технологии.
+                        <a asp-controller="Home" asp-action="PrivacyPolicy">Узнайте подробнее</a>
+                    </div>
+                    <button type="button" class="btn btn-accept-cookie" onclick="setCookie('cookie_agreement')">
+                        Хорошо
+                    </button>
+                </div>
+            </div>
+        }
+    }
     <environment include="Development">
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

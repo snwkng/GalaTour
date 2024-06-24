@@ -85,3 +85,8 @@ $('#VP').click(function () {
     // Initialize
     var bLazy = new Blazy();
 })();
+
+function setCookie(cookieName) {
+    document.cookie = cookieName + "=" + true;
+    location.reload();
+}
